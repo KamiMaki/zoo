@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -60,6 +61,8 @@
 
         <activity android:name=".cameraActivity" />
         <activity android:name=".animalActivity" />
+        <activity android:name=".animalListActivity" />
+        <activity android:name=".myAnimalListActivity" />
         <activity
             android:name=".mapsActivity"
             android:label="@string/title_activity_maps" />
@@ -67,6 +70,7 @@
         <activity android:name=".UnityPlayerActivity" />
         <activity android:name=".qrcodeActivity" />
         <activity android:name=".gameActivity" />
+        <activity android:name=".gameMapsActivity" />
         <activity android:name=".restaurantActivity" />
         <activity android:name=".myFoodListActivity" />
         <activity android:name=".foodListActivity" />

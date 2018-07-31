@@ -12,12 +12,14 @@ import android.view.Window;
 import com.unity3d.player.UnityPlayer;
 
 import java.io.File;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class cameraActivity extends Activity{
 protected UnityPlayer mUnityPlayer;
 String path = "/storage/emulated/0/Pictures/";
 Intent intent;
-
+Timer timer01 = new Timer();
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,20 @@ Intent intent;
         setContentView(mUnityPlayer);
         mUnityPlayer.requestFocus();
         mUnityPlayer.requestFocus();
+        timer01.schedule(task, 0, 3000);
     }
+    //自動更新相冊
+    private TimerTask task = new TimerTask() {
+        public void run() {
+            Thread t2 = new Thread(r2);
+            t2.start();
+        }
+    };
+    private Runnable r2 = new Runnable() {
+        public void run() {
+            folderScan(path);
+        }
+    };
 
     @Override protected void onNewIntent(Intent intent)
     {
@@ -138,16 +153,18 @@ Intent intent;
     }
 
     // Pass any events not handled by (unfocused) views straight to UnityPlayer
-    @Override public boolean onKeyUp(int keyCode, KeyEvent event)     { return mUnityPlayer.injectEvent(event); }
+    @Override public boolean onKeyUp(int keyCode, KeyEvent event)
+    {
+
+        return mUnityPlayer.injectEvent(event);
+    }
     @Override public boolean onKeyDown(int keyCode, KeyEvent event)
     {
-        if(keyCode == KeyEvent.KEYCODE_HOME)
-        {
-            folderScan(path);
-        }
+
         if(keyCode == KeyEvent.KEYCODE_BACK )
         {
             folderScan(path);
+            timer01.cancel();
             onDestroy();
         }
         return true; }

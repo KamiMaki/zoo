@@ -32,7 +32,7 @@ public class MainScreen extends AppCompatActivity {
 
         background.setImageResource(R.drawable.background);
         camera.setImageResource(R.drawable.camera);
-        QRcode.setImageResource(R.drawable.qrcode);
+        QRcode.setImageResource(R.drawable.guide);
         map.setImageResource(R.drawable.map);
         game.setImageResource(R.drawable.game);
         food.setImageResource(R.drawable.food);
@@ -57,7 +57,13 @@ public class MainScreen extends AppCompatActivity {
             }
         });
 
-        QRcode.setOnClickListener(scan);
+        QRcode.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(MainScreen.this, qrcodeActivity.class);
+                startActivity(intent);
+            }
+        });
 
         food.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

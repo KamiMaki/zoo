@@ -18,7 +18,7 @@ public class foodListActivity extends AppCompatActivity {
 
         intent=this.getIntent();
 
-        food= (ImageView) findViewById(R.id.image1);
+        food= (ImageView) findViewById(R.id.foodlist);
 
         food.setImageResource(R.drawable.foodlist);
     }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="TW" size="100.000000 74.146843" />
+    <ImageTarget name="bird" size="100.000000 74.146843" />
+    <ImageTarget name="penguin" size="100.000000 100.000000" />
+    <ImageTarget name="37648681_1721787297874599_8145084088756207616_n" size="100.000000 65.208336" />
+  </Tracking>
+</QCARConfig>
