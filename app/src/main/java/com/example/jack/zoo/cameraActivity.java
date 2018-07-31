@@ -1,28 +1,23 @@
 package com.example.jack.zoo;
-
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.PixelFormat;
-import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.Window;
-import android.widget.LinearLayout;
 
 import com.unity3d.player.UnityPlayer;
-import com.unity3d.player.UnityPlayerActivity;
 
 import java.io.File;
 
-public class cameraActivity extends Activity {
+public class cameraActivity extends Activity{
 protected UnityPlayer mUnityPlayer;
-String path;
+String path = "/storage/emulated/0/Pictures/";
 Intent intent;
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,34 +25,12 @@ Intent intent;
         super.onCreate(savedInstanceState);
         intent = this.getIntent();
         setContentView(R.layout.activity_camera);
+
         getWindow().setFormat(PixelFormat.RGBX_8888);
-        mUnityPlayer = new UnityPlayer(this);
+       mUnityPlayer = new UnityPlayer(this);
         setContentView(mUnityPlayer);
-        UnityPlayer.UnitySendMessage("GameObject","atou","test123");
         mUnityPlayer.requestFocus();
-        MediaScannerConnection.scanFile(this, new String[]{}, null, null);
-        mediaScannerConnection.connect();
-    }
-    public void getfilename(String name)
-    {
-        path = name;
-    }
-    MediaScannerConnection mediaScannerConnection = new MediaScannerConnection(cameraActivity.this, new MediaScannerConnection.MediaScannerConnectionClient() {
-        @Override
-        public void onMediaScannerConnected() {
-            mediaScannerConnection.scanFile(path, null);
-        }
-
-        @Override
-        public void onScanCompleted(String path, Uri uri) {
-            mediaScannerConnection.disconnect();
-        }
-    });
-
-    public void exit()
-    {
-        setResult(RESULT_OK,intent);
-        cameraActivity.this.finish();
+        mUnityPlayer.requestFocus();
     }
 
     @Override protected void onNewIntent(Intent intent)
@@ -142,15 +115,40 @@ Intent intent;
         return super.dispatchKeyEvent(event);
     }
 
+    private void fileScan(String file){
+        cameraActivity.this.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://" + file)));
+    }
+    private void folderScan(String path){
+        File file = new File(path);
+        if(file.exists() && file.isDirectory()){
+            File[] array = file.listFiles();
+            for(int i=0;i<array.length;i++){
+                File f = array[i];
+                if(f.isFile()){
+                    String name = f.getName();
+                    if(name.endsWith(".png") || name.endsWith(".jpg")){
+                        fileScan(f.getAbsolutePath());
+                    }
+                }
+                else {
+                    folderScan(f.getAbsolutePath());
+                }
+            }
+        }
+    }
+
     // Pass any events not handled by (unfocused) views straight to UnityPlayer
     @Override public boolean onKeyUp(int keyCode, KeyEvent event)     { return mUnityPlayer.injectEvent(event); }
     @Override public boolean onKeyDown(int keyCode, KeyEvent event)
     {
-        if(keyCode == KeyEvent.KEYCODE_BACK)
+        if(keyCode == KeyEvent.KEYCODE_HOME)
         {
-            mUnityPlayer.quit();
-            Intent intent = new Intent(cameraActivity.this,MainScreen.class);
-            startActivity(intent);
+            folderScan(path);
+        }
+        if(keyCode == KeyEvent.KEYCODE_BACK )
+        {
+            folderScan(path);
+            onDestroy();
         }
         return true; }
     @Override public boolean onTouchEvent(MotionEvent event)          { return mUnityPlayer.injectEvent(event); }
