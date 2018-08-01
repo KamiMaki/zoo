@@ -1,10 +1,6 @@
-﻿package com.example.jack.zoo;
+package com.example.jack.zoo;
 
 import android.Manifest;
-import android.app.Activity;
-import android.bluetooth.le.BluetoothLeScanner;
-import android.bluetooth.le.ScanCallback;
-import android.bluetooth.le.ScanResult;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.bluetooth.BluetoothAdapter;
@@ -18,7 +14,6 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,12 +22,10 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -1026,18 +1019,7 @@ public class gameActivity extends AppCompatActivity{
                                     LayoutInflater factory = LayoutInflater.from(gameActivity.this);
                                     final View view = factory.inflate(R.layout.dialog2, null);
                                     alertadd.setView(view);
-
-                                    alertadd.setPositiveButton("我知道了", new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dlg, int sumthin) {
-                                            tv.setText(Place[2]);
-                                            tv2.setText(Story[2]);
-
-                                        }
-                                    });
-                                   
-
                                     alertadd.setNeutralButton("我知道了", new DialogInterface.OnClickListener() {
-
                                         public void onClick(DialogInterface dlg, int sumthin) {
                                             tv.setText(Place[2]);
                                             tv2.setText(Story[2]);
@@ -1047,7 +1029,7 @@ public class gameActivity extends AppCompatActivity{
                                     alertadd.setNegativeButton("進入遊戲", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dlg, int sumthin) {
                                             Intent intent = new Intent();
-                                            intent.setClass(gameActivity.this, qrcode_aActivity.class);
+                                            intent.setClass(gameActivity.this, qrcode_bActivity.class);
                                             startActivity(intent);
                                         }
                                     });
