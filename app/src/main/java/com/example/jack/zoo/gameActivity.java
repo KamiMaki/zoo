@@ -1018,7 +1018,14 @@ public class gameActivity extends AppCompatActivity{
                                     LayoutInflater factory = LayoutInflater.from(gameActivity.this);
                                     final View view = factory.inflate(R.layout.dialog2, null);
                                     alertadd.setView(view);
-                                    alertadd.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                                    alertadd.setPositiveButton("我知道了", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dlg, int sumthin) {
+                                            tv.setText(Place[2]);
+                                            tv2.setText(Story[2]);
+
+                                        }
+                                    });
+                                    alertadd.setNegativeButton("進入關卡", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dlg, int sumthin) {
                                             tv.setText(Place[2]);
                                             tv2.setText(Story[2]);
