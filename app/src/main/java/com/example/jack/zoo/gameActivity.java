@@ -1049,12 +1049,10 @@ public class gameActivity extends AppCompatActivity{
             }
         }
     };
-
     public  boolean turnOffBluetooth()
 
     {
         if (mBluetoothAdapter != null)
-
         {
             return mBluetoothAdapter.disable();
         }
