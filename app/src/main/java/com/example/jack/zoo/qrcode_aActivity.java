@@ -51,8 +51,16 @@ public class qrcode_aActivity extends AppCompatActivity {
             }
             else
             {
-                //
-                Toast.makeText(this,result.getContents(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this,result.getContents(),Toast.LENGTH_SHORT).show();
+                String x=result.getContents()+"Activity";
+
+                Intent intent = new Intent();
+
+                intent.setClass(qrcode_aActivity.this, practice_aActivity.class);
+                Bundle bundle=new Bundle();
+                bundle.putInt("input", 1);
+                intent.putExtras(bundle);
+                startActivityForResult(intent,1);
 
             }
         }

@@ -131,7 +131,8 @@
             android:label="@string/title_activity_game_ifm2"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".qrcode_aActivity" />
-        <activity android:name=".qrcode_bActivity"></activity>
+        <activity android:name=".qrcode_bActivity" />
+        <activity android:name=".practice_aActivity"></activity>
     </application>
 
 </manifest>
