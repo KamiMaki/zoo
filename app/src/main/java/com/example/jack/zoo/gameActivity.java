@@ -1,6 +1,8 @@
 package com.example.jack.zoo;
 
 import android.Manifest;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.bluetooth.BluetoothAdapter;
@@ -14,6 +16,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -129,7 +132,6 @@ public class gameActivity extends AppCompatActivity{
 
         intent = this.getIntent();
         bundle = intent.getExtras();
-        count[0] = bundle.getBoolean("count[0]");
 
         tv = (TextView) findViewById(R.id.textView);
         tv2 = (TextView) findViewById(R.id.textView2);
@@ -235,29 +237,13 @@ public class gameActivity extends AppCompatActivity{
         img14.setOnClickListener(i14cl);
         img15.setOnClickListener(i15cl);
         img16.setOnClickListener(i16cl);
+       
+
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setClass(gameActivity.this, mapsActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putBoolean("count[0]",count[0]);
-                bundle.putBoolean("count[1]",count[1]);
-                bundle.putBoolean("count[2]",count[2]);
-                bundle.putBoolean("count[3]",count[3]);
-                bundle.putBoolean("count[4]",count[4]);
-                bundle.putBoolean("count[5]",count[5]);
-                bundle.putBoolean("count[6]",count[6]);
-                bundle.putBoolean("count[7]",count[7]);
-                bundle.putBoolean("count[8]",count[8]);
-                bundle.putBoolean("count[9]",count[9]);
-                bundle.putBoolean("count[10]",count[10]);
-                bundle.putBoolean("count[11]",count[11]);
-                bundle.putBoolean("count[12]",count[12]);
-                bundle.putBoolean("count[13]",count[13]);
-                bundle.putBoolean("count[14]",count[14]);
-                bundle.putBoolean("count[15]",count[15]);
-
 
                 //如果沒有點選，則picturenumber為未蒐集到的第一個地點編號
                 for(int i=0;i<16;i++)
@@ -277,110 +263,123 @@ public class gameActivity extends AppCompatActivity{
                         break;
                     }
                 }
-                bundle.putInt("picturenumber",picturenumber);//送出圖片編號
-                intent.putExtras(bundle);
-                startActivityForResult(intent,1);
+                startActivity(intent);
             }
         });
+
+
+        Thread t1 = new Thread(r1);
+        t1.start();
     }
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1 && resultCode == RESULT_OK) {
-            //取得集點狀況
-            count[0] = data.getExtras().getBoolean("count[0]");
-            count[1] = data.getExtras().getBoolean("count[1]");
-            count[2] = data.getExtras().getBoolean("count[2]");
-            count[3] = data.getExtras().getBoolean("count[3]");
-            count[4] = data.getExtras().getBoolean("count[4]");
-            count[5] = data.getExtras().getBoolean("count[5]");
-            count[6] = data.getExtras().getBoolean("count[6]");
-            count[7] = data.getExtras().getBoolean("count[7]");
-            count[8] = data.getExtras().getBoolean("count[8]");
-            count[9] = data.getExtras().getBoolean("count[9]");
-            count[10] = data.getExtras().getBoolean("count[10]");
-            count[11] = data.getExtras().getBoolean("count[11]");
-            count[12] = data.getExtras().getBoolean("count[12]");
-            count[13] = data.getExtras().getBoolean("count[13]");
-            count[14] = data.getExtras().getBoolean("count[14]");
-            count[15] = data.getExtras().getBoolean("count[15]");
 
+    private Runnable r1=new Runnable () {
+        public void run() {
 
-            if(count[0])
-                img1.setImageResource(R.mipmap.a);
-            else
-                img1.setImageResource(R.mipmap.a_a);
-            if(count[1])
-                img2.setImageResource(R.mipmap.b);
-            else
-                img2.setImageResource(R.mipmap.b_b);
-            if(count[2])
-                img3.setImageResource(R.mipmap.c);
-            else
-                img3.setImageResource(R.mipmap.c_c);
-            if(count[3])
-                img4.setImageResource(R.mipmap.d);
-            else
-                img4.setImageResource(R.mipmap.d_d);
-            if(count[4])
-                img5.setImageResource(R.mipmap.e);
-            else
-                img5.setImageResource(R.mipmap.e_e);
-            if(count[5])
-                img6.setImageResource(R.mipmap.f);
-            else
-                img6.setImageResource(R.mipmap.f_f);
-            if(count[6])
-                img7.setImageResource(R.mipmap.g);
-            else
-                img7.setImageResource(R.mipmap.g_g);
-            if(count[7])
-                img8.setImageResource(R.mipmap.h);
-            else
-                img8.setImageResource(R.mipmap.h_h);
-            if(count[8])
-                img9.setImageResource(R.mipmap.i);
-            else
-                img9.setImageResource(R.mipmap.i_i);
-            if(count[9])
-                img10.setImageResource(R.mipmap.j);
-            else
-                img10.setImageResource(R.mipmap.j_j);
-            if(count[10])
-                img11.setImageResource(R.mipmap.k);
-            else
-                img11.setImageResource(R.mipmap.k_k);
-            if(count[11])
-                img12.setImageResource(R.mipmap.l);
-            else
-                img12.setImageResource(R.mipmap.l_l);
-            if(count[12])
-                img13.setImageResource(R.mipmap.m);
-            else
-                img13.setImageResource(R.mipmap.m_m);
-            if(count[13])
-                img14.setImageResource(R.mipmap.n);
-            else
-                img14.setImageResource(R.mipmap.n_n);
-            if(count[14])
-                img15.setImageResource(R.mipmap.o);
-            else
-                img15.setImageResource(R.mipmap.o_o);
-            if(count[15])
-                img16.setImageResource(R.mipmap.p);
-            else
-                img16.setImageResource(R.mipmap.p_p);
+            try {
+                count[0] = bundle.getBoolean("count[0]");
+                count[1] = bundle.getBoolean("count[1]");
+                count[2] = bundle.getBoolean("count[2]");
+                count[3] = bundle.getBoolean("count[3]");
+                count[4] = bundle.getBoolean("count[4]");
+                count[5] = bundle.getBoolean("count[5]");
+                count[6] = bundle.getBoolean("count[6]");
+                count[7] = bundle.getBoolean("count[7]");
+                count[8] = bundle.getBoolean("count[8]");
+                count[9] = bundle.getBoolean("count[9]");
+                count[10] = bundle.getBoolean("count[10]");
+                count[11] = bundle.getBoolean("count[11]");
+                count[12] = bundle.getBoolean("count[12]");
+                count[13] = bundle.getBoolean("count[13]");
+                count[14] = bundle.getBoolean("count[14]");
+                count[15] = bundle.getBoolean("count[15]");
 
-            if(count[0]&&count[1]&&count[2]&&count[3]&&count[4]&&count[5]&&count[6]&&count[7]&&count[8]&&count[9]&&count[10]&&count[11]&&count[12]&&count[13]&&count[14]&&count[15])
-                flag[16]=true;
+                if(count[0])
+                    img1.setImageResource(R.mipmap.a);
+                else
+                    img1.setImageResource(R.mipmap.a_a);
+                if(count[1])
+                    img2.setImageResource(R.mipmap.b);
+                else
+                    img2.setImageResource(R.mipmap.b_b);
+                if(count[2])
+                    img3.setImageResource(R.mipmap.c);
+                else
+                    img3.setImageResource(R.mipmap.c_c);
+                if(count[3])
+                    img4.setImageResource(R.mipmap.d);
+                else
+                    img4.setImageResource(R.mipmap.d_d);
+                if(count[4])
+                    img5.setImageResource(R.mipmap.e);
+                else
+                    img5.setImageResource(R.mipmap.e_e);
+                if(count[5])
+                    img6.setImageResource(R.mipmap.f);
+                else
+                    img6.setImageResource(R.mipmap.f_f);
+                if(count[6])
+                    img7.setImageResource(R.mipmap.g);
+                else
+                    img7.setImageResource(R.mipmap.g_g);
+                if(count[7])
+                    img8.setImageResource(R.mipmap.h);
+                else
+                    img8.setImageResource(R.mipmap.h_h);
+                if(count[8])
+                    img9.setImageResource(R.mipmap.i);
+                else
+                    img9.setImageResource(R.mipmap.i_i);
+                if(count[9])
+                    img10.setImageResource(R.mipmap.j);
+                else
+                    img10.setImageResource(R.mipmap.j_j);
+                if(count[10])
+                    img11.setImageResource(R.mipmap.k);
+                else
+                    img11.setImageResource(R.mipmap.k_k);
+                if(count[11])
+                    img12.setImageResource(R.mipmap.l);
+                else
+                    img12.setImageResource(R.mipmap.l_l);
+                if(count[12])
+                    img13.setImageResource(R.mipmap.m);
+                else
+                    img13.setImageResource(R.mipmap.m_m);
+                if(count[13])
+                    img14.setImageResource(R.mipmap.n);
+                else
+                    img14.setImageResource(R.mipmap.n_n);
+                if(count[14])
+                    img15.setImageResource(R.mipmap.o);
+                else
+                    img15.setImageResource(R.mipmap.o_o);
+                if(count[15])
+                    img16.setImageResource(R.mipmap.p);
+                else
+                    img16.setImageResource(R.mipmap.p_p);
+                if(count[0]&&count[1]&&count[2]&&count[3]&&count[4]&&count[5]&&count[6]&&count[7]&&count[8]&&count[9]&&count[10]&&count[11]&&count[12]&&count[13]&&count[14]&&count[15])
+                    flag[16]=true;
+            } catch (Exception e) {
+                Log.e("Net", "Fail to put");
+            }
+            Message message = new Message();
+            message.what = 1;
+            h1.sendMessage(message);
+        }
+    };
 
-
-            if(flag[16])
-            {
-                tv.setText(Place[16]);
-                tv2.setText(Story[16]);
+    Handler h1 = new Handler() {
+        public void handleMessage(Message msg) {
+            if (msg.what == 1) {
+                if(flag[16])
+                {
+                    tv.setText(Place[16]);
+                    tv2.setText(Story[16]);
+                }
+                setResult(RESULT_OK,intent);
             }
         }
-    }
-
+    };
 
 
 

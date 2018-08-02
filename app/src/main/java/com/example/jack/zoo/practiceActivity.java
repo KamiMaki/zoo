@@ -69,7 +69,6 @@ public class practiceActivity extends AppCompatActivity {
 
         bt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
                 answer();
             }
         });
@@ -134,9 +133,11 @@ public class practiceActivity extends AppCompatActivity {
                     break;
                 case R.id.radioButton2:
                     Toast.makeText(this,"恭喜答對!",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent();
+                    count[1]=true;
                     intent.setClass(practiceActivity.this, gameActivity.class);
-                    startActivity(intent);
+                    bundle.putBoolean("count[1]",count[1]);
+                    intent.putExtras(bundle);
+                    startActivityForResult(intent,1);
                     break;
                 case R.id.radioButton3:
                     Toast.makeText(this,"答錯了喔!",Toast.LENGTH_SHORT).show();
@@ -148,9 +149,11 @@ public class practiceActivity extends AppCompatActivity {
             switch(rg.getCheckedRadioButtonId()){
                 case R.id.radioButton1:
                     Toast.makeText(this,"恭喜答對!",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent();
+                    count[2]=true;
                     intent.setClass(practiceActivity.this, gameActivity.class);
-                    startActivity(intent);
+                    bundle.putBoolean("count[2]",count[2]);
+                    intent.putExtras(bundle);
+                    startActivityForResult(intent,1);
                     break;
                 case R.id.radioButton2:
                     Toast.makeText(this,"猜錯了喔",Toast.LENGTH_SHORT).show();
