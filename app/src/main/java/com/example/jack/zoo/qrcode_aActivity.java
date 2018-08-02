@@ -14,8 +14,6 @@ import com.google.zxing.integration.android.IntentResult;
 public class qrcode_aActivity extends AppCompatActivity {
 
     ImageButton ib;
-    Intent intent = new Intent();
-    int n;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +35,6 @@ public class qrcode_aActivity extends AppCompatActivity {
                 integrator.setBeepEnabled(false);
                 integrator.setBarcodeImageEnabled(false);
                 integrator.initiateScan();
-
             }
         });
     }
@@ -55,24 +52,23 @@ public class qrcode_aActivity extends AppCompatActivity {
             else
             {
                 //Toast.makeText(this,result.getContents(),Toast.LENGTH_SHORT).show();
+                String x=result.getContents()+"Activity";
 
-                if(result.getContents().equals("企鵝")){
-                    n=0;}
-                else if(result.getContents().equals("大貓熊")){
-                    n=1;}
-                else if(result.getContents().equals("無尾熊")){
-                    n=2;}
-                intent.setClass(qrcode_aActivity.this, practiceActivity.class);
+                Intent intent = new Intent();
+
+                intent.setClass(qrcode_aActivity.this, practice_aActivity.class);
                 Bundle bundle=new Bundle();
-                bundle.putInt("input", n);
+                bundle.putInt("input", 1);
                 intent.putExtras(bundle);
-                startActivityForResult(intent,0);
+                startActivityForResult(intent,1);
+
             }
         }
         else
         {
             super.onActivityResult(requestCode, resultCode, data);
         }
+
     }
 }
 
