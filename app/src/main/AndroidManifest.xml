@@ -60,9 +60,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme">
         <activity android:name=".MainScreen" />
-
+        <activity
+            android:name="com.unity3d.player.VideoPlayer"
+            android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <!--
+                To support devices using the TI S3D library for stereo mode we must
+                add the following library.
+                Devices that require this are: ODG X6
+        -->
         <uses-library
             android:name="com.ti.s3d"
             android:required="false" />
@@ -123,8 +132,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".qrcode_aActivity" />
         <activity android:name=".qrcode_bActivity" />
-        <activity android:name=".practice_aActivity" />
-        <activity android:name=".webview"></activity>
+        <activity android:name=".practice_aActivity"></activity>
     </application>
 
 </manifest>

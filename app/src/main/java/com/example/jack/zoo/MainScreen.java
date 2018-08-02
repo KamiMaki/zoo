@@ -49,7 +49,7 @@ public class MainScreen extends AppCompatActivity {
         map.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(MainScreen.this, webview.class);
+                intent.setClass(MainScreen.this, mapsActivity.class);
                 //Bundle bundle = new Bundle();
                 //bundle.putInt("position", 1);
                 //intent.putExtras(bundle);
