@@ -129,8 +129,7 @@ public class gameActivity extends AppCompatActivity{
 
         intent = this.getIntent();
         bundle = intent.getExtras();
-        count[0] = bundle.getBoolean("count[0]");
-
+        
         tv = (TextView) findViewById(R.id.textView);
         tv2 = (TextView) findViewById(R.id.textView2);
         button = (Button) findViewById(R.id.button);
