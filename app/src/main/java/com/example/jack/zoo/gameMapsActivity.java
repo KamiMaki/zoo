@@ -270,7 +270,7 @@ public class gameMapsActivity extends FragmentActivity implements OnMapReadyCall
             newLocation.setLatitude(location.getLatitude());
             newLocation.setLongitude(location.getLongitude());
 
-            //九個地點的位置、與現在位置的距離
+            //16個地點的位置、與現在位置的距離
             Location Location1=new Location("Location1");
             Location1.setLatitude(latnum[0]);
             Location1.setLongitude(lonnum[0]);
@@ -410,7 +410,7 @@ public class gameMapsActivity extends FragmentActivity implements OnMapReadyCall
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-// Do something.
+            // Do something.
             //Intent intent = new Intent();
             //intent.setClass(MapsActivity.this, MainActivity.class);
             //Bundle bundle = new Bundle();
