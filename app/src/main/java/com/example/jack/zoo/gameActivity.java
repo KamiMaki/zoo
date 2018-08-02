@@ -237,7 +237,23 @@ public class gameActivity extends AppCompatActivity{
         img14.setOnClickListener(i14cl);
         img15.setOnClickListener(i15cl);
         img16.setOnClickListener(i16cl);
-       
+        img1.setOnLongClickListener(i1Lcl);//長按
+        img2.setOnLongClickListener(i2Lcl);
+        img3.setOnLongClickListener(i3Lcl);
+        img4.setOnLongClickListener(i4Lcl);
+        img5.setOnLongClickListener(i5Lcl);
+        img6.setOnLongClickListener(i6Lcl);
+        img7.setOnLongClickListener(i7Lcl);
+        img8.setOnLongClickListener(i8Lcl);
+        img9.setOnLongClickListener(i9Lcl);
+        img10.setOnLongClickListener(i10Lcl);
+        img11.setOnLongClickListener(i11Lcl);
+        img12.setOnLongClickListener(i12Lcl);
+        img13.setOnLongClickListener(i13Lcl);
+        img14.setOnLongClickListener(i14Lcl);
+        img15.setOnLongClickListener(i15Lcl);
+        img16.setOnLongClickListener(i16Lcl);
+
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -386,6 +402,107 @@ public class gameActivity extends AppCompatActivity{
 
     private View.OnClickListener i1cl =new View.OnClickListener(){
         public void onClick(View v) {
+
+        }
+    };
+
+    private View.OnClickListener i2cl =new View.OnClickListener(){
+        public void onClick(View v) {
+
+        }
+    };
+
+    private View.OnClickListener i3cl =new View.OnClickListener(){
+        public void onClick(View v) {
+            Intent intent = new Intent();
+            intent.setClass(gameActivity.this, qrcode_bActivity.class);
+            startActivity(intent);
+        }
+    };
+
+    private View.OnClickListener i4cl =new View.OnClickListener(){
+        public void onClick(View v) {
+
+        }
+    };
+
+    private View.OnClickListener i5cl =new View.OnClickListener(){
+        public void onClick(View v) {
+
+        }
+    };
+
+    private View.OnClickListener i6cl =new View.OnClickListener(){
+        public void onClick(View v) {
+
+        }
+    };
+
+    private View.OnClickListener i7cl =new View.OnClickListener(){
+        public void onClick(View v) {
+            Intent intent = new Intent();
+            intent.setClass(gameActivity.this, qrcode_aActivity.class);
+            startActivity(intent);
+        }
+    };
+
+    private View.OnClickListener i8cl =new View.OnClickListener(){
+        public void onClick(View v) {
+
+        }
+    };
+
+    private View.OnClickListener i9cl =new View.OnClickListener(){
+        public void onClick(View v) {
+
+        }
+    };
+
+    private View.OnClickListener i10cl =new View.OnClickListener(){
+        public void onClick(View v) {
+
+        }
+    };
+
+    private View.OnClickListener i11cl =new View.OnClickListener(){
+        public void onClick(View v) {
+
+        }
+    };
+
+    private View.OnClickListener i12cl =new View.OnClickListener(){
+        public void onClick(View v) {
+
+        }
+    };
+
+    private View.OnClickListener i13cl =new View.OnClickListener(){
+        public void onClick(View v) {
+
+        }
+    };
+
+    private View.OnClickListener i14cl =new View.OnClickListener(){
+        public void onClick(View v) {
+
+        }
+    };
+
+    private View.OnClickListener i15cl =new View.OnClickListener(){
+        public void onClick(View v) {
+
+        }
+    };
+
+    private View.OnClickListener i16cl =new View.OnClickListener(){
+        public void onClick(View v) {
+
+        }
+    };
+
+    //長按細節
+    private View.OnLongClickListener i1Lcl =new View.OnLongClickListener(){
+        public boolean onLongClick(View v) {
             if(flag[0]==false){
                 for(int i=0;i<16;i++)
                     flag[i]=false;
@@ -415,11 +532,12 @@ public class gameActivity extends AppCompatActivity{
                     img1.setImageResource(R.mipmap.a);
                 }
             }
+            return true;
         }
     };
 
-    private View.OnClickListener i2cl =new View.OnClickListener(){
-        public void onClick(View v) {
+    private View.OnLongClickListener i2Lcl =new View.OnLongClickListener(){
+        public boolean onLongClick(View v) {
             if(flag[1]==false){
                 for(int i=0;i<16;i++)
                     flag[i]=false;
@@ -447,11 +565,12 @@ public class gameActivity extends AppCompatActivity{
                     img2.setImageResource(R.mipmap.b);
                 }
             }
+            return true;
         }
     };
 
-    private View.OnClickListener i3cl =new View.OnClickListener(){
-        public void onClick(View v) {
+    private View.OnLongClickListener i3Lcl =new View.OnLongClickListener(){
+        public boolean onLongClick(View v) {
             if(flag[2]==false){
                 for(int i=0;i<16;i++)
                     flag[i]=false;
@@ -479,11 +598,12 @@ public class gameActivity extends AppCompatActivity{
                     img3.setImageResource(R.mipmap.c);
                 }
             }
+            return true;
         }
     };
 
-    private View.OnClickListener i4cl =new View.OnClickListener(){
-        public void onClick(View v) {
+    private View.OnLongClickListener i4Lcl =new View.OnLongClickListener(){
+        public boolean onLongClick(View v) {
             if(flag[3]==false){
                 for(int i=0;i<16;i++)
                     flag[i]=false;
@@ -511,11 +631,12 @@ public class gameActivity extends AppCompatActivity{
                     img4.setImageResource(R.mipmap.d);
                 }
             }
+            return true;
         }
     };
 
-    private View.OnClickListener i5cl =new View.OnClickListener(){
-        public void onClick(View v) {
+    private View.OnLongClickListener i5Lcl =new View.OnLongClickListener(){
+        public boolean onLongClick(View v) {
             if(flag[4]==false){
                 for(int i=0;i<16;i++)
                     flag[i]=false;
@@ -543,11 +664,12 @@ public class gameActivity extends AppCompatActivity{
                     img5.setImageResource(R.mipmap.e);
                 }
             }
+            return true;
         }
     };
 
-    private View.OnClickListener i6cl =new View.OnClickListener(){
-        public void onClick(View v) {
+    private View.OnLongClickListener i6Lcl =new View.OnLongClickListener(){
+        public boolean onLongClick(View v) {
             if(flag[5]==false){
                 for(int i=0;i<16;i++)
                     flag[i]=false;
@@ -575,11 +697,12 @@ public class gameActivity extends AppCompatActivity{
                     img6.setImageResource(R.mipmap.f);
                 }
             }
+            return true;
         }
     };
 
-    private View.OnClickListener i7cl =new View.OnClickListener(){
-        public void onClick(View v) {
+    private View.OnLongClickListener i7Lcl =new View.OnLongClickListener(){
+        public boolean onLongClick(View v) {
             if(flag[6]==false){
                 for(int i=0;i<16;i++)
                     flag[i]=false;
@@ -607,11 +730,12 @@ public class gameActivity extends AppCompatActivity{
                     img7.setImageResource(R.mipmap.g);
                 }
             }
+            return true;
         }
     };
 
-    private View.OnClickListener i8cl =new View.OnClickListener(){
-        public void onClick(View v) {
+    private View.OnLongClickListener i8Lcl =new View.OnLongClickListener(){
+        public boolean onLongClick(View v) {
             if(flag[7]==false){
                 for(int i=0;i<16;i++)
                     flag[i]=false;
@@ -639,11 +763,12 @@ public class gameActivity extends AppCompatActivity{
                     img8.setImageResource(R.mipmap.h);
                 }
             }
+            return true;
         }
     };
 
-    private View.OnClickListener i9cl =new View.OnClickListener(){
-        public void onClick(View v) {
+    private View.OnLongClickListener i9Lcl =new View.OnLongClickListener(){
+        public boolean onLongClick(View v) {
             if(flag[8]==false){
                 for(int i=0;i<16;i++)
                     flag[i]=false;
@@ -671,11 +796,12 @@ public class gameActivity extends AppCompatActivity{
                     img9.setImageResource(R.mipmap.i);
                 }
             }
+            return true;
         }
     };
 
-    private View.OnClickListener i10cl =new View.OnClickListener(){
-        public void onClick(View v) {
+    private View.OnLongClickListener i10Lcl =new View.OnLongClickListener(){
+        public boolean onLongClick(View v) {
             if(flag[9]==false){
                 for(int i=0;i<16;i++)
                     flag[i]=false;
@@ -703,11 +829,12 @@ public class gameActivity extends AppCompatActivity{
                     img10.setImageResource(R.mipmap.j);
                 }
             }
+            return true;
         }
     };
 
-    private View.OnClickListener i11cl =new View.OnClickListener(){
-        public void onClick(View v) {
+    private View.OnLongClickListener i11Lcl =new View.OnLongClickListener(){
+        public boolean onLongClick(View v) {
             if(flag[10]==false){
                 for(int i=0;i<16;i++)
                     flag[i]=false;
@@ -735,11 +862,12 @@ public class gameActivity extends AppCompatActivity{
                     img11.setImageResource(R.mipmap.k);
                 }
             }
+            return true;
         }
     };
 
-    private View.OnClickListener i12cl =new View.OnClickListener(){
-        public void onClick(View v) {
+    private View.OnLongClickListener i12Lcl =new View.OnLongClickListener(){
+        public boolean onLongClick(View v) {
             if(flag[11]==false){
                 for(int i=0;i<16;i++)
                     flag[i]=false;
@@ -767,11 +895,12 @@ public class gameActivity extends AppCompatActivity{
                     img12.setImageResource(R.mipmap.l);
                 }
             }
+            return true;
         }
     };
 
-    private View.OnClickListener i13cl =new View.OnClickListener(){
-        public void onClick(View v) {
+    private View.OnLongClickListener i13Lcl =new View.OnLongClickListener(){
+        public boolean onLongClick(View v) {
             if(flag[12]==false){
                 for(int i=0;i<16;i++)
                     flag[i]=false;
@@ -799,11 +928,12 @@ public class gameActivity extends AppCompatActivity{
                     img13.setImageResource(R.mipmap.m);
                 }
             }
+            return true;
         }
     };
 
-    private View.OnClickListener i14cl =new View.OnClickListener(){
-        public void onClick(View v) {
+    private View.OnLongClickListener i14Lcl =new View.OnLongClickListener(){
+        public boolean onLongClick(View v) {
             if(flag[13]==false){
                 for(int i=0;i<16;i++)
                     flag[i]=false;
@@ -831,11 +961,12 @@ public class gameActivity extends AppCompatActivity{
                     img14.setImageResource(R.mipmap.n);
                 }
             }
+            return true;
         }
     };
 
-    private View.OnClickListener i15cl =new View.OnClickListener(){
-        public void onClick(View v) {
+    private View.OnLongClickListener i15Lcl =new View.OnLongClickListener(){
+        public boolean onLongClick(View v) {
             if(flag[14]==false){
                 for(int i=0;i<16;i++)
                     flag[i]=false;
@@ -863,11 +994,12 @@ public class gameActivity extends AppCompatActivity{
                     img15.setImageResource(R.mipmap.o);
                 }
             }
+            return true;
         }
     };
 
-    private View.OnClickListener i16cl =new View.OnClickListener(){
-        public void onClick(View v) {
+    private View.OnLongClickListener i16Lcl =new View.OnLongClickListener(){
+        public boolean onLongClick(View v) {
             if(flag[15]==false){
                 for(int i=0;i<16;i++)
                     flag[i]=false;
@@ -895,9 +1027,9 @@ public class gameActivity extends AppCompatActivity{
                     img16.setImageResource(R.mipmap.p);
                 }
             }
+            return true;
         }
     };
-
 
     //以下beacon
     private TimerTask task = new TimerTask() {

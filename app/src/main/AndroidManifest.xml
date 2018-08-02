@@ -123,7 +123,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".qrcode_aActivity" />
         <activity android:name=".qrcode_bActivity" />
-        <activity android:name=".practice_aActivity" />
+        <activity android:name=".practiceActivity" />
         <activity android:name=".webview"></activity>
     </application>
 
