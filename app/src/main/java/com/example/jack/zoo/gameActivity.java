@@ -128,8 +128,13 @@ public class gameActivity extends AppCompatActivity{
             flag[i]=false;
 
         intent = this.getIntent();
+<<<<<<< HEAD
         bundle = intent.getExtras();
         
+=======
+        //bundle = intent.getExtras();
+
+>>>>>>> parent of 5817a65... Merge branch 'master' of https://github.com/KamiMaki/zoo
         tv = (TextView) findViewById(R.id.textView);
         tv2 = (TextView) findViewById(R.id.textView2);
         button = (Button) findViewById(R.id.button);
