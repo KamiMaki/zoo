@@ -117,9 +117,9 @@ public class practiceActivity extends AppCompatActivity {
                     break;
                 case R.id.radioButton3:
                     Toast.makeText(this,"恭喜答對!",Toast.LENGTH_SHORT).show();
-                    count[0]=true;
+                    count[6]=true;
                     intent.setClass(practiceActivity.this, gameActivity.class);
-                    bundle.putBoolean("count[0]",count[0]);
+                    bundle.putBoolean("count[6]",count[6]);
                     intent.putExtras(bundle);
                     startActivityForResult(intent,1);
                     break;
@@ -133,9 +133,9 @@ public class practiceActivity extends AppCompatActivity {
                     break;
                 case R.id.radioButton2:
                     Toast.makeText(this,"恭喜答對!",Toast.LENGTH_SHORT).show();
-                    count[1]=true;
+                    count[2]=true;
                     intent.setClass(practiceActivity.this, gameActivity.class);
-                    bundle.putBoolean("count[1]",count[1]);
+                    bundle.putBoolean("count[2]",count[2]);
                     intent.putExtras(bundle);
                     startActivityForResult(intent,1);
                     break;
@@ -149,9 +149,9 @@ public class practiceActivity extends AppCompatActivity {
             switch(rg.getCheckedRadioButtonId()){
                 case R.id.radioButton1:
                     Toast.makeText(this,"恭喜答對!",Toast.LENGTH_SHORT).show();
-                    count[2]=true;
+                    count[4]=true;
                     intent.setClass(practiceActivity.this, gameActivity.class);
-                    bundle.putBoolean("count[2]",count[2]);
+                    bundle.putBoolean("count[4]",count[4]);
                     intent.putExtras(bundle);
                     startActivityForResult(intent,1);
                     break;
