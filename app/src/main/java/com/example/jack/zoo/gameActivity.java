@@ -17,6 +17,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -1047,6 +1048,28 @@ public class gameActivity extends AppCompatActivity{
             }
         }
     };
+
+    public  boolean turnOffBluetooth()
+
+    {
+        if (mBluetoothAdapter != null)
+
+        {
+            return mBluetoothAdapter.disable();
+        }
+        return false;
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+
+        if(keyCode == KeyEvent.KEYCODE_BACK )
+        {
+            turnOffBluetooth();
+            this.finish();
+        }
+        return true;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
