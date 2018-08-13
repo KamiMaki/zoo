@@ -36,7 +36,7 @@ public class MainScreen extends AppCompatActivity {
         map.setImageResource(R.drawable.map);
         game.setImageResource(R.drawable.game);
         food.setImageResource(R.drawable.food);
-        animal.setImageResource(R.drawable.animal);
+        animal.setImageResource(R.drawable.argue);
 
         camera.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

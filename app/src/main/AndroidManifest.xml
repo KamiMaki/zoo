@@ -117,14 +117,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".gameIFMActivity"
-            android:label="@string/title_activity_game_ifm2"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".qrcode_aActivity" />
-        <activity android:name=".qrcode_bActivity" />
         <activity android:name=".practiceActivity" />
-        <activity android:name=".webview"></activity>
+        <activity android:name=".webview" />
+        <activity android:name=".practiceResultActivity" />
+        <activity android:name=".gameIFMActivity" />
+        <activity android:name=".introduce_aActivity"></activity>
     </application>
 
 </manifest>
