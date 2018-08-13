@@ -7,35 +7,33 @@
     android:background="#a9e4d2"
     tools:context=".qrcodeActivity">
 
-    <Button
-        android:id="@+id/button11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="48dp"
-        android:text="各館參觀時間與介紹"
+    <ImageButton
+        android:id="@+id/imageButton33"
+        android:layout_width="163dp"
+        android:layout_height="62dp"
+        android:background="@drawable/ic_launcher_foreground"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.438"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.395" />
+        app:layout_constraintVertical_bias="0.196"
+        app:srcCompat="@drawable/ic_launcher_background" />
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="表演時間"
+    <ImageButton
+        android:id="@+id/imageButton34"
+        android:layout_width="260dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/ic_launcher_foreground"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.438"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.194" />
+        app:layout_constraintVertical_bias="0.457"
+        app:srcCompat="@drawable/ic_launcher_background" />
 
 </android.support.constraint.ConstraintLayout>

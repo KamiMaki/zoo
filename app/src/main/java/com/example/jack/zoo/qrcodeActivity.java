@@ -17,7 +17,7 @@ public class qrcodeActivity extends AppCompatActivity {
 
     Intent intent= new Intent();
     Bundle bundle= new Bundle();
-    Button introduce,show;
+    ImageButton introduce,show;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,11 @@ public class qrcodeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_qrcode);
 
         intent=this.getIntent();
-        introduce=(Button)findViewById(R.id.button11);
-        show=(Button)findViewById(R.id.button7);
+        introduce=(ImageButton)findViewById(R.id.imageButton34);
+        show=(ImageButton)findViewById(R.id.imageButton33);
+
+        introduce.setImageResource(R.drawable.introduce);
+        show.setImageResource(R.drawable.show);
 
 
         introduce.setOnClickListener(new View.OnClickListener()
