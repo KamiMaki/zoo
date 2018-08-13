@@ -31,8 +31,7 @@ public class gameIFMActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_ifm);
 
         intent = this.getIntent();
-
-        bt5=findViewById(R.id.button5);
+        bt5=(Button)findViewById(R.id.button5);
         bt5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(gameIFMActivity.this,gameIFMActivity.class);
@@ -46,12 +45,12 @@ public class gameIFMActivity extends AppCompatActivity {
         dots.add(findViewById(R.id.dot_3));
         // 得到viewPager的布局
         LayoutInflater lf = LayoutInflater.from(gameIFMActivity.this);
-        view1 = lf.inflate(R.layout.viewpager_item1, null);
-        view2 = lf.inflate(R.layout.viewpager_item2, null);
-        view3 = lf.inflate(R.layout.viewpager_item3, null);
-        viewList.add(view1);
-        viewList.add(view2);
-        viewList.add(view3);
+        //view1 = lf.inflate(R.layout.viewpager_item1, null);
+        //view2 = lf.inflate(R.layout.viewpager_item2, null);
+        //view3 = lf.inflate(R.layout.viewpager_item3, null);
+        //viewList.add(view1);
+        //viewList.add(view2);
+        //viewList.add(view3);
         // 找到点击进入那个按钮
         mViewPager = (ViewPager) findViewById(R.id.vp);
 
@@ -118,11 +117,5 @@ public class gameIFMActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        finish();
     }
 }

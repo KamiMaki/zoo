@@ -121,8 +121,10 @@
         <activity android:name=".practiceActivity" />
         <activity android:name=".webview" />
         <activity android:name=".practiceResultActivity" />
-        <activity android:name=".gameIFMActivity" />
-        <activity android:name=".introduce_aActivity"></activity>
+        <activity android:name=".introduce_aActivity" />
+        <activity android:name=".introduce_bActivity" />
+        <activity android:name=".show_aActivity" />
+        <activity android:name=".gameIFMActivity"></activity>
     </application>
 
 </manifest>

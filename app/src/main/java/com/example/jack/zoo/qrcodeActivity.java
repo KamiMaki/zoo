@@ -17,7 +17,7 @@ public class qrcodeActivity extends AppCompatActivity {
 
     Intent intent= new Intent();
     Bundle bundle= new Bundle();
-    Button introduce;
+    Button introduce,show;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class qrcodeActivity extends AppCompatActivity {
 
         intent=this.getIntent();
         introduce=(Button)findViewById(R.id.button11);
+        show=(Button)findViewById(R.id.button7);
 
 
         introduce.setOnClickListener(new View.OnClickListener()
@@ -35,6 +36,17 @@ public class qrcodeActivity extends AppCompatActivity {
             {
                 Intent intent = new Intent();
                 intent.setClass(qrcodeActivity.this, introduce_aActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        show.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent();
+                intent.setClass(qrcodeActivity.this, show_aActivity.class);
                 startActivity(intent);
             }
         });
