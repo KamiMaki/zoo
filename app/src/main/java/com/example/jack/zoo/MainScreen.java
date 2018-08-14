@@ -14,7 +14,7 @@ import com.unity3d.player.UnityPlayerActivity;
 public class MainScreen extends AppCompatActivity {
 
     ImageView background;
-    ImageButton camera,QRcode,map,game,food,animal;
+    ImageButton camera,information,map,game,food,video;
 
 
     @Override
@@ -24,19 +24,19 @@ public class MainScreen extends AppCompatActivity {
 
         background = (ImageView) findViewById(R.id.backimage);
         camera=(ImageButton)findViewById(R.id.button1);
-        QRcode=(ImageButton)findViewById(R.id.button3);
+        information=(ImageButton)findViewById(R.id.button3);
         map=(ImageButton)findViewById(R.id.button2);
         game=(ImageButton)findViewById(R.id.button5);
         food=(ImageButton)findViewById(R.id.button4);
-        animal=(ImageButton)findViewById(R.id.button6);
+        video=(ImageButton)findViewById(R.id.button6);
 
         background.setImageResource(R.drawable.background);
         camera.setImageResource(R.drawable.camera);
-        QRcode.setImageResource(R.drawable.guide);
-        map.setImageResource(R.drawable.map);
+        information.setImageResource(R.drawable.guide);
+        map.setImageResource(R.drawable.roadsign);
         game.setImageResource(R.drawable.game);
         food.setImageResource(R.drawable.food);
-        animal.setImageResource(R.drawable.argue);
+        video.setImageResource(R.drawable.video);
 
         camera.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -57,7 +57,7 @@ public class MainScreen extends AppCompatActivity {
             }
         });
 
-        QRcode.setOnClickListener(new View.OnClickListener() {
+        information.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setClass(MainScreen.this, qrcodeActivity.class);
@@ -81,7 +81,7 @@ public class MainScreen extends AppCompatActivity {
             }
         });
 
-        animal.setOnClickListener(new View.OnClickListener() {
+        video.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setClass(MainScreen.this, animalActivity.class);

@@ -17,7 +17,7 @@ public class qrcodeActivity extends AppCompatActivity {
 
     Intent intent= new Intent();
     Bundle bundle= new Bundle();
-    ImageButton introduce,show;
+    ImageButton introduce,show,map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +27,11 @@ public class qrcodeActivity extends AppCompatActivity {
         intent=this.getIntent();
         introduce=(ImageButton)findViewById(R.id.imageButton34);
         show=(ImageButton)findViewById(R.id.imageButton33);
+        map=(ImageButton)findViewById(R.id.imageButton35);
 
         introduce.setImageResource(R.drawable.introduce);
         show.setImageResource(R.drawable.show);
+        map.setImageResource(R.drawable.areamap);
 
 
         introduce.setOnClickListener(new View.OnClickListener()
@@ -50,6 +52,17 @@ public class qrcodeActivity extends AppCompatActivity {
             {
                 Intent intent = new Intent();
                 intent.setClass(qrcodeActivity.this, show_aActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        map.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent();
+                intent.setClass(qrcodeActivity.this, webview.class);
                 startActivity(intent);
             }
         });
