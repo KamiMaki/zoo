@@ -9,8 +9,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import com.unity3d.player.UnityPlayerActivity;
-
 public class MainScreen extends AppCompatActivity {
 
     ImageView background;
@@ -38,6 +36,7 @@ public class MainScreen extends AppCompatActivity {
         food.setImageResource(R.drawable.food);
         video.setImageResource(R.drawable.video);
 
+        //AR相機
         camera.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();
@@ -46,6 +45,7 @@ public class MainScreen extends AppCompatActivity {
             }
         });
 
+        //AR路標
         map.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();
@@ -57,14 +57,16 @@ public class MainScreen extends AppCompatActivity {
             }
         });
 
+        //園區資訊
         information.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(MainScreen.this, qrcodeActivity.class);
+                intent.setClass(MainScreen.this, informationActivity.class);
                 startActivity(intent);
             }
         });
 
+        //用餐
         food.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();
@@ -73,6 +75,7 @@ public class MainScreen extends AppCompatActivity {
             }
         });
 
+        //闖關遊戲
         game.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();
@@ -81,6 +84,7 @@ public class MainScreen extends AppCompatActivity {
             }
         });
 
+        //AR多媒體
         video.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();

@@ -97,19 +97,16 @@
 
         <activity android:name=".cameraActivity" />
         <activity android:name=".animalActivity" />
-        <activity android:name=".animalListActivity" />
-        <activity android:name=".myAnimalListActivity" />
         <activity
             android:name=".mapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".foodActivity" />
         <activity android:name=".UnityPlayerActivity" />
-        <activity android:name=".qrcodeActivity" />
+        <activity android:name=".informationActivity" />
         <activity android:name=".gameActivity" />
         <activity android:name=".gameMapsActivity" />
         <activity android:name=".restaurantActivity" />
         <activity android:name=".myFoodListActivity" />
-        <activity android:name=".foodListActivity" />
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/AppTheme.NoActionBar">

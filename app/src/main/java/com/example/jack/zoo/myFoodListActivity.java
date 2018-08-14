@@ -13,11 +13,5 @@ public class myFoodListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_food_list);
         intent=this.getIntent();
 
-
-
-
-
-
-
     }
 }

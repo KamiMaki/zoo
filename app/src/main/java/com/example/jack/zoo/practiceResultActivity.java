@@ -21,7 +21,7 @@ public class practiceResultActivity extends AppCompatActivity {
     Intent intent=new Intent();
     Bundle bundle=new Bundle();
     TextView cr,ncr;
-    Button ans,back;
+    ImageButton ans,back;
     //boolean count[]=new boolean[16];
     int n,number;
     public static List<Activity> activityList = new LinkedList<Activity>();
@@ -31,12 +31,10 @@ public class practiceResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_practice_result);
 
 
-        ans = (Button)findViewById(R.id.button9);
-        back = (Button)findViewById(R.id.button10);
-        //ans = (ImageButton)findViewById(R.id.imageButton19);
-        //back = (ImageButton)findViewById(R.id.imageButton18);
-        //ans.setImageResource(R.drawable.answer);
-        //back.setImageResource(R.drawable.house);
+        ans = (ImageButton)findViewById(R.id.imageButton38);
+        back = (ImageButton)findViewById(R.id.imageButton37);
+        ans.setImageResource(R.drawable.answer);
+        back.setImageResource(R.drawable.home);
 
         intent = this.getIntent();
         bundle = intent.getExtras();
