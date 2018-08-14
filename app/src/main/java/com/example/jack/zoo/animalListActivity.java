@@ -10,9 +10,9 @@ import java.util.List;
 public class animalListActivity extends AppCompatActivity {
 
     Intent intent;
-    List<item> items;//把item用list列出
+    //List<item> items;//把item用list列出
     ListView layoutTest;
-    SuperAdapter adapter;//把item弄進來
+    //SuperAdapter adapter;//把item弄進來
 
     //public int[] iconnum = new int[]{R.drawable.a, R.drawable.b, R.drawable.c};
     public String[] aname = new String[50];
