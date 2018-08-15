@@ -48,8 +48,8 @@ public class MainScreen extends AppCompatActivity {
         //AR路標
         map.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(MainScreen.this, webview.class);
+                Intent intent = getPackageManager().getLaunchIntentForPackage("Name.Company.com");
+                //intent.setClass(MainScreen.this, webview.class);
                 //Bundle bundle = new Bundle();
                 //bundle.putInt("position", 1);
                 //intent.putExtras(bundle);
@@ -87,8 +87,8 @@ public class MainScreen extends AppCompatActivity {
         //AR多媒體
         video.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(MainScreen.this, animalActivity.class);
+                Intent intent = getPackageManager().getLaunchIntentForPackage("test123.Company.com");
+               // intent.setClass(MainScreen.this, animalActivity.class);
                 startActivity(intent);
             }
         });
