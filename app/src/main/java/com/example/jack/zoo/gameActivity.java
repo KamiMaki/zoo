@@ -68,9 +68,8 @@ public class gameActivity extends AppCompatActivity{
     boolean count[]=new boolean[16];//紀錄集點狀況
 
     private TextView tv;
-    private Button button;
     private FloatingActionButton information;
-    private ImageButton img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16;
+    private ImageButton img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16,map;
     String textToSave="";
     boolean longClicked = false;
 
@@ -119,7 +118,7 @@ public class gameActivity extends AppCompatActivity{
         bundle = intent.getExtras();
 
         tv = (TextView) findViewById(R.id.textView);
-        button = (Button) findViewById(R.id.button);
+        map = (ImageButton) findViewById(R.id.imageButton36);
         information=(FloatingActionButton) findViewById(R.id.floatingActionButton);
         img1 = (ImageButton) findViewById(R.id.imageButton1);
         img2 = (ImageButton) findViewById(R.id.imageButton2);
@@ -137,6 +136,7 @@ public class gameActivity extends AppCompatActivity{
         img14= (ImageButton) findViewById(R.id.imageButton14);
         img15= (ImageButton) findViewById(R.id.imageButton15);
         img16= (ImageButton) findViewById(R.id.imageButton16);
+        map.setImageResource(R.drawable.areamap);
 
         readFile();
 
@@ -307,7 +307,7 @@ public class gameActivity extends AppCompatActivity{
         });
 
 
-        button.setOnClickListener(new View.OnClickListener() {
+        map.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setClass(gameActivity.this, mapsActivity.class);

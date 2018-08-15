@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#c2edbc"
+    android:background="#a9e4d2"
     tools:context=".qrcode_aActivity">
 
     <TextView

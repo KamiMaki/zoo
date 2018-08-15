@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#a9e4d2"
-    tools:context=".animalActivity">
+    tools:context=".show_bActivity">
 
 </android.support.constraint.ConstraintLayout>

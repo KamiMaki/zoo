@@ -1,23 +1,16 @@
 package com.example.jack.zoo;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
-import com.google.android.gms.common.api.CommonStatusCodes;
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
-
-public class qrcodeActivity extends AppCompatActivity {
+public class informationActivity extends AppCompatActivity {
 
     Intent intent= new Intent();
     Bundle bundle= new Bundle();
-    ImageButton introduce,show;
+    ImageButton introduce,show,map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +20,11 @@ public class qrcodeActivity extends AppCompatActivity {
         intent=this.getIntent();
         introduce=(ImageButton)findViewById(R.id.imageButton34);
         show=(ImageButton)findViewById(R.id.imageButton33);
+        map=(ImageButton)findViewById(R.id.imageButton35);
 
         introduce.setImageResource(R.drawable.introduce);
         show.setImageResource(R.drawable.show);
+        map.setImageResource(R.drawable.areamap);
 
 
         introduce.setOnClickListener(new View.OnClickListener()
@@ -38,7 +33,7 @@ public class qrcodeActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 Intent intent = new Intent();
-                intent.setClass(qrcodeActivity.this, introduce_aActivity.class);
+                intent.setClass(informationActivity.this, introduce_aActivity.class);
                 startActivity(intent);
             }
         });
@@ -49,7 +44,18 @@ public class qrcodeActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 Intent intent = new Intent();
-                intent.setClass(qrcodeActivity.this, show_aActivity.class);
+                intent.setClass(informationActivity.this, show_aActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        map.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent();
+                intent.setClass(informationActivity.this, webview.class);
                 startActivity(intent);
             }
         });

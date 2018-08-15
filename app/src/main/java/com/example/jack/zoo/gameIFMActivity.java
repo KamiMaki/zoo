@@ -34,7 +34,7 @@ public class gameIFMActivity extends AppCompatActivity {
         bt5=(Button)findViewById(R.id.button5);
         bt5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(gameIFMActivity.this,gameIFMActivity.class);
+                Intent intent = new Intent(gameIFMActivity.this,gameActivity.class);
                 startActivity(intent);
             }});
         // 添加当前Acitivity到ancivitylist里面去，为了方便统一退出
