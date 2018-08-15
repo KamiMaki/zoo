@@ -11,10 +11,12 @@ import android.widget.TextView;
 import java.util.List;
 
 class MyAdapter extends BaseAdapter {
-    private LayoutInflater myInflater;
-    private List<list_restaurant> list_restaurants;
-    public MyAdapter(Context context, List<list_restaurant> list_restaurants){
+    LayoutInflater myInflater;
+    Context context;
+    List<list_restaurant> list_restaurants;
+    MyAdapter(Context context, List<list_restaurant> list_restaurants){
         myInflater = LayoutInflater.from(context);
+        this.context = context;
         this.list_restaurants = list_restaurants;
     }
 
@@ -45,23 +47,18 @@ class MyAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
-        if(convertView==null){
+        MyAdapter.ViewHolder holder;
+        myInflater = LayoutInflater.from(context);
             convertView = myInflater.inflate(R.layout.activity_list_restaurant, null);
-            holder = new ViewHolder((ImageButton) convertView.findViewById(R.id.imageButton2),
+            holder = new MyAdapter.ViewHolder((ImageButton) convertView.findViewById(R.id.imageButton2),
                     (TextView) convertView.findViewById(R.id.textView),
                     (TextView) convertView.findViewById(R.id.textView2)
             );
-            convertView.setTag(holder);
-        }else{
-            holder = (ViewHolder) convertView.getTag();
-        }
-        list_restaurant list_restaurants = (list_restaurant) getItem(position);
-        holder.img.setImageResource(list_restaurants.get_Img());
-        holder.tv_name.setText(list_restaurants.get_Name());
-        holder.tv_location.setText(list_restaurants.get_Location());
-
-
+        list_restaurant pos = list_restaurants.get(position);
+        holder.img.setImageResource(pos.get_Img());
+        holder.tv_name.setText(pos.get_Name());
+        holder.tv_location.setText(pos.get_Location());
+        convertView.setTag(holder);
         return convertView;
     }
 }
