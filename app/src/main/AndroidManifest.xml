@@ -129,7 +129,8 @@
             android:name=".CallAlarmReceiver"
             android:process=":remote" />
 
-        <activity android:name=".show_bActivity"></activity>
+        <activity android:name=".show_bActivity" />
+        <activity android:name=".restaurant_intro"></activity>
     </application>
 
 </manifest>
