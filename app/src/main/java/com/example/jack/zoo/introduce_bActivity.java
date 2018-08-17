@@ -18,7 +18,7 @@ public class introduce_bActivity extends AppCompatActivity {
     String[] Story = new String[16];//地點介紹
     int number;
     TextView tv1,tv2;
-    ImageView img;
+    ImageView img1,img2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +29,8 @@ public class introduce_bActivity extends AppCompatActivity {
 
         tv1 = (TextView) findViewById(R.id.textView2);
         tv2 = (TextView) findViewById(R.id.textView17);
-        img = (ImageView) findViewById(R.id.imageView5);
+        img1 = (ImageView) findViewById(R.id.imageView5);
+        img2 = (ImageView) findViewById(R.id.imageView24);
 
         Time[0]="開放參觀時間：\n每週二上午9:00-12:00，若遇例假日則停止開放。\n";
         Time[1]="開放參觀時間：\n每日9:00 - 16:30\n每月第四個週一休館";
@@ -88,38 +89,70 @@ public class introduce_bActivity extends AppCompatActivity {
             if (msg.what == 1&&bundle!=null) {
                 tv1.setText(Time[number]);
                 tv2.setText(Story[number]);
-                if(number==0)
-                    img.setImageResource(R.mipmap.a__a);
-                else if(number==1)
-                    img.setImageResource(R.mipmap.b__b);
-                else if(number==2)
-                    img.setImageResource(R.mipmap.c__c);
-                else if(number==3)
-                    img.setImageResource(R.mipmap.d__d);
-                else if(number==4)
-                    img.setImageResource(R.mipmap.e__e);
-                else if(number==5)
-                    img.setImageResource(R.mipmap.f__f);
-                else if(number==6)
-                    img.setImageResource(R.mipmap.g__g);
-                else if(number==7)
-                    img.setImageResource(R.mipmap.h__h);
-                else if(number==8)
-                    img.setImageResource(R.mipmap.i__i);
-                else if(number==9)
-                    img.setImageResource(R.mipmap.j__j);
-                else if(number==10)
-                    img.setImageResource(R.mipmap.k__k);
-                else if(number==11)
-                    img.setImageResource(R.mipmap.l__l);
-                else if(number==12)
-                    img.setImageResource(R.mipmap.m__m);
-                else if(number==13)
-                    img.setImageResource(R.mipmap.n__n);
-                else if(number==14)
-                    img.setImageResource(R.mipmap.o__o);
-                else if(number==15)
-                    img.setImageResource(R.mipmap.p__p);
+                if(number==0) {
+                    img1.setImageResource(R.mipmap.a__a);
+                    img2.setImageResource(R.mipmap.a___a);
+                }
+                else if(number==1) {
+                    img1.setImageResource(R.mipmap.b__b);
+                    img2.setImageResource(R.mipmap.b___b);
+                }
+                else if(number==2) {
+                    img1.setImageResource(R.mipmap.c__c);
+                    img2.setImageResource(R.mipmap.c___c);
+                }
+                else if(number==3) {
+                    img1.setImageResource(R.mipmap.d__d);
+                    img2.setImageResource(R.mipmap.d___d);
+                }
+                else if(number==4) {
+                    img1.setImageResource(R.mipmap.e__e);
+                    img2.setImageResource(R.mipmap.e___e);
+                }
+                else if(number==5) {
+                    img1.setImageResource(R.mipmap.f__f);
+                    img2.setImageResource(R.mipmap.f___f);
+                }
+                else if(number==6) {
+                    img1.setImageResource(R.mipmap.g__g);
+                    img2.setImageResource(R.mipmap.g___g);
+                }
+                else if(number==7) {
+                    img1.setImageResource(R.mipmap.h__h);
+                    img2.setImageResource(R.mipmap.h___h);
+                }
+                else if(number==8) {
+                    img1.setImageResource(R.mipmap.i__i);
+                    img2.setImageResource(R.mipmap.i___i);
+                }
+                else if(number==9) {
+                    img1.setImageResource(R.mipmap.j__j);
+                    img2.setImageResource(R.mipmap.j___j);
+                }
+                else if(number==10) {
+                    img1.setImageResource(R.mipmap.k__k);
+                    img2.setImageResource(R.mipmap.k___k);
+                }
+                else if(number==11) {
+                    img1.setImageResource(R.mipmap.l__l);
+                    img2.setImageResource(R.mipmap.l___l);
+                }
+                else if(number==12) {
+                    img1.setImageResource(R.mipmap.m__m);
+                    img2.setImageResource(R.mipmap.m___m);
+                }
+                else if(number==13){
+                    img1.setImageResource(R.mipmap.n__n);
+                    img2.setImageResource(R.mipmap.n___n);
+                }
+                else if(number==14) {
+                    img1.setImageResource(R.mipmap.o__o);
+                    img2.setImageResource(R.mipmap.o___o);
+                }
+                else if(number==15) {
+                    img1.setImageResource(R.mipmap.p__p);
+                    img2.setImageResource(R.mipmap.p___p);
+                }
                 setResult(RESULT_OK,intent);
             }
         }

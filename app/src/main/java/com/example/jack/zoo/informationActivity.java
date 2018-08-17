@@ -15,16 +15,16 @@ public class informationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qrcode);
+        setContentView(R.layout.activity_information);
 
         intent=this.getIntent();
         introduce=(ImageButton)findViewById(R.id.imageButton34);
         show=(ImageButton)findViewById(R.id.imageButton33);
         map=(ImageButton)findViewById(R.id.imageButton35);
 
-        introduce.setImageResource(R.drawable.introduce);
-        show.setImageResource(R.drawable.show);
-        map.setImageResource(R.drawable.areamap);
+        introduce.setImageResource(R.drawable.building);
+        show.setImageResource(R.drawable.show2);
+        map.setImageResource(R.drawable.map);
 
 
         introduce.setOnClickListener(new View.OnClickListener()

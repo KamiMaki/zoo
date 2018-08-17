@@ -9,10 +9,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,10 +25,11 @@ public class practiceResultActivity extends AppCompatActivity {
 
     Intent intent=new Intent();
     Bundle bundle=new Bundle();
-    TextView cr,ncr;
+    TextView cr,ncr;//顯示答對/錯題數
     ImageButton ans,back;
+    String textToSave="",readResult1="";
     //boolean count[]=new boolean[16];
-    int n,number;
+    int n,number,readResult2=0;
     public static List<Activity> activityList = new LinkedList<Activity>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +60,7 @@ public class practiceResultActivity extends AppCompatActivity {
 
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                intent.setClass(practiceResultActivity.this, gameActivity.class);
+                intent.setClass(practiceResultActivity.this, game_aActivity.class);
                 bundle.putInt("number",number);
                 intent.putExtras(bundle);
                 startActivityForResult(intent,0);
@@ -79,12 +85,15 @@ public class practiceResultActivity extends AppCompatActivity {
         }
     }
 
+
     private Runnable r1=new Runnable () {
         public void run() {
 
             try {
                 n=bundle.getInt("correct");
                 number=bundle.getInt("number");
+                readFile2();
+                writeFile2();
             } catch (Exception e) {
                 Log.e("Net", "Fail to put");
             }
@@ -106,6 +115,44 @@ public class practiceResultActivity extends AppCompatActivity {
             }
         }
     };
+
+    //存檔(已答對的題數)
+    public void writeFile2(){
+
+        textToSave=Integer.toString(readResult2+n);//存入答對的題數
+
+        try{
+            FileOutputStream fileOutputStream=openFileOutput("AmazooGameFile2.txt", MODE_PRIVATE);
+            fileOutputStream.write(textToSave.getBytes());
+            fileOutputStream.close();
+
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    //讀檔(已答對的題數)
+    public void readFile2(){
+        try{
+            FileInputStream fileInputStream=openFileInput("AmazooGameFile2.txt");
+            InputStreamReader inputStreamReader=new InputStreamReader(fileInputStream);
+
+            BufferedReader bufferedReader=new BufferedReader(inputStreamReader);
+            StringBuffer stringBuffer= new StringBuffer();
+
+            String lines;
+            while((lines=bufferedReader.readLine())!=null){
+                stringBuffer.append(lines);
+            }
+            readResult1 = stringBuffer.toString();//字串
+            readResult2=Integer.parseInt(readResult1);//整數
+
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 
 
     //返回鍵失效

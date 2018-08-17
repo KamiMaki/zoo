@@ -13,7 +13,7 @@ import android.widget.Button;
 import java.util.ArrayList;
 import java.util.List;
 
-public class gameIFMActivity extends AppCompatActivity {
+public class gameIFM1Activity extends AppCompatActivity {
 
     private ArrayList<View> dots;
     private ViewPager mViewPager;
@@ -28,13 +28,13 @@ public class gameIFMActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_ifm);
+        setContentView(R.layout.activity_game_ifm1);
 
         intent = this.getIntent();
         bt5=(Button)findViewById(R.id.button5);
         bt5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(gameIFMActivity.this,gameActivity.class);
+                Intent intent = new Intent(gameIFM1Activity.this,game_aActivity.class);
                 startActivity(intent);
             }});
         // 添加当前Acitivity到ancivitylist里面去，为了方便统一退出
@@ -44,10 +44,10 @@ public class gameIFMActivity extends AppCompatActivity {
         dots.add(findViewById(R.id.dot_2));
         dots.add(findViewById(R.id.dot_3));
         // 得到viewPager的布局
-        LayoutInflater lf = LayoutInflater.from(gameIFMActivity.this);
-        view1 = lf.inflate(R.layout.viewpager_item1, null);
-        view2 = lf.inflate(R.layout.viewpager_item2, null);
-        view3 = lf.inflate(R.layout.viewpager_item3, null);
+        LayoutInflater lf = LayoutInflater.from(gameIFM1Activity.this);
+        view1 = lf.inflate(R.layout.viewpager_item1_1, null);
+        view2 = lf.inflate(R.layout.viewpager_item1_2, null);
+        view3 = lf.inflate(R.layout.viewpager_item1_3, null);
         viewList.add(view1);
         viewList.add(view2);
         viewList.add(view3);
