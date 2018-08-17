@@ -23,18 +23,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -48,7 +41,8 @@ public class show_aActivity extends AppCompatActivity {
     SimpleDateFormat   format  =   new   SimpleDateFormat   ("HH:mm:ss");
     Date curDate =  new Date(System.currentTimeMillis());
     Switch switch1,switch2,switch3;
-    String textToSave="";
+    Button bt;
+    boolean is_enable = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,24 +52,16 @@ public class show_aActivity extends AppCompatActivity {
         switch1=findViewById(R.id.switch1);
         switch2=findViewById(R.id.switch2);
         switch3=findViewById(R.id.switch3);
-
-        switch1.setChecked(true);
-        switch2.setChecked(true);
-        switch3.setChecked(true);
-        readFile();
-        onSwitchClicked(switch1);
-        onSwitchClicked(switch2);
-        onSwitchClicked(switch3);
-
+        bt=findViewById(R.id.button7);
 
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // TODO Auto-generated method stub
-                if (buttonView.isChecked()){//若開
+                if (buttonView.isChecked()){
                     onSwitchClicked(switch1);
                 }
-                else{//若關
+                else{
                     Intent intent = new Intent(show_aActivity.this, CallAlarmReceiver.class);
                     am = (AlarmManager) getSystemService(ALARM_SERVICE);
                     sender = PendingIntent.getBroadcast(show_aActivity.this, 0, intent, 0);
@@ -84,7 +70,6 @@ public class show_aActivity extends AppCompatActivity {
                     am=null;
                     Toast.makeText(show_aActivity.this,"關閉鬧鐘提醒",Toast.LENGTH_SHORT).show();
                 }
-                writeFile();
             }
         });
 
@@ -104,7 +89,6 @@ public class show_aActivity extends AppCompatActivity {
                     am=null;
                     Toast.makeText(show_aActivity.this,"關閉鬧鐘提醒",Toast.LENGTH_SHORT).show();
                 }
-                writeFile();
             }
         });
 
@@ -124,93 +108,25 @@ public class show_aActivity extends AppCompatActivity {
                     am=null;
                     Toast.makeText(show_aActivity.this,"關閉鬧鐘提醒",Toast.LENGTH_SHORT).show();
                 }
-                writeFile();
             }
         });
 
-        Thread t1 = new Thread(r1);
-        t1.start();
-
     }
 
-    private Runnable r1=new Runnable () {
-        public void run() {
-
-            try {
-                writeFile();
-                readFile();
-            } catch (Exception e) {
-                Log.e("Net", "Fail to put");
-            }
+    public void button_click(View view){
+        if(is_enable == true)
+        {
+            is_enable = false;
+            bt.setText("啟用Switch按钮");
         }
-    };
-
-
-    //存檔(關著的開關)
-    public void writeFile(){
-
-        textToSave="";
-        if(switch1.isChecked()==false){
-            textToSave+="1";
+        else{
+            is_enable = true;
+            bt.setText("禁用Switch按钮");
         }
-        if(switch2.isChecked()==false){
-            textToSave+=" 2";
-        }
-        if(switch3.isChecked()==false){
-            textToSave+=" 3";
-        }
-
-        try{
-            FileOutputStream fileOutputStream=openFileOutput("AmazooClockFile.txt", MODE_PRIVATE);
-            fileOutputStream.write(textToSave.getBytes());
-            fileOutputStream.close();
-
-        }catch(IOException e){
-            e.printStackTrace();
-        }
+        switch1.setEnabled(is_enable);
+        switch2.setEnabled(is_enable);
+        switch3.setEnabled(is_enable);
     }
-
-    //讀檔(關著的開關)
-    public void readFile(){
-        try{
-            FileInputStream fileInputStream=openFileInput("AmazooClockFile.txt");
-            InputStreamReader inputStreamReader=new InputStreamReader(fileInputStream);
-
-            BufferedReader bufferedReader=new BufferedReader(inputStreamReader);
-            StringBuffer stringBuffer= new StringBuffer();
-
-            String lines;
-            while((lines=bufferedReader.readLine())!=null){
-                stringBuffer.append(lines);
-            }
-
-            String[] number = stringBuffer.toString().split(" ");
-            int i=0;
-
-            //RelativeLayout layout = (RelativeLayout)findViewById(R.id.r_layout);
-            while(i<number.length){
-                String a=number[i];
-                if(a.equals("1")){
-                    switch1.setChecked(false);
-                    //layout.addView(switch1);
-                }
-                else if(a.equals("2")){
-                    switch2.setChecked(false);
-                    //layout.addView(sb);
-                }
-                else if(a.equals("3")) {
-                    switch3.setChecked(false);
-                    //layout.addView(sb);
-                }
-                i++;
-            }
-        }catch(FileNotFoundException e){
-            e.printStackTrace();
-        }catch(IOException e){
-            e.printStackTrace();
-        }
-    }
-
 
     public void onSwitchClicked(View view) {
         switch(view.getId()) {
@@ -224,12 +140,12 @@ public class show_aActivity extends AppCompatActivity {
 
                     // 设置时间
                     //calendar.setTimeInMillis(System.currentTimeMillis());
-                    calendar.set(Calendar.HOUR_OF_DAY,16);
-                    calendar.set(Calendar.MINUTE,50);
-                    calendar.set(Calendar.SECOND,1);
+                    //calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
+                    //calendar.set(Calendar.MINUTE,minute);
+                    //calendar.set(Calendar.SECOND,0);
                     //calendar.set(Calendar.MILLISECOND,0);
-                    //calendar.set(2018, 7, 14, 16, 23,1);
 
+                    calendar.set(2018, 7, 14, 16, 23,1);
                     //广播跳转
                     Bundle bundle=new Bundle();
                     Intent intent = new Intent(show_aActivity.this, CallAlarmReceiver.class);
@@ -240,6 +156,7 @@ public class show_aActivity extends AppCompatActivity {
                        show_aActivity.this, 0, intent, 0);
                     //创建闹钟
                     am = (AlarmManager) getSystemService(ALARM_SERVICE);
+                    am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), sender);
                     am.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 86400000, sender);//每日重複
 
                     String tmpS = format.format(curDate);
@@ -260,11 +177,7 @@ public class show_aActivity extends AppCompatActivity {
                     calendar=Calendar.getInstance();
                     calendar.setTimeInMillis(System.currentTimeMillis());
 
-                    calendar.set(Calendar.HOUR_OF_DAY,17);
-                    calendar.set(Calendar.MINUTE,20);
-                    calendar.set(Calendar.SECOND,1);
-                    //calendar.set(2018, 7, 14, 16, 23,30);
-
+                    calendar.set(2018, 7, 14, 16, 23,30);
                     //广播跳转
                     Bundle bundle=new Bundle();
                     Intent intent = new Intent(show_aActivity.this, CallAlarmReceiver.class);
@@ -275,6 +188,7 @@ public class show_aActivity extends AppCompatActivity {
                             show_aActivity.this, 1, intent, 0);
                     //创建闹钟
                     am = (AlarmManager) getSystemService(ALARM_SERVICE);
+                    am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), sender);
                     am.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 86400000, sender);//每日重複
 
 
@@ -294,10 +208,7 @@ public class show_aActivity extends AppCompatActivity {
                 if (switch3.isChecked()) {
                     calendar=Calendar.getInstance();
                     calendar.setTimeInMillis(System.currentTimeMillis());
-                    calendar.set(Calendar.HOUR_OF_DAY,17);
-                    calendar.set(Calendar.MINUTE,35);
-                    calendar.set(Calendar.SECOND,1);
-                    //calendar.set(2018, 7, 14, 16, 23,50);
+                    calendar.set(2018, 7, 14, 16, 23,50);
                     //广播跳转
                     Bundle bundle=new Bundle();
                     Intent intent = new Intent(show_aActivity.this, CallAlarmReceiver.class);
@@ -308,6 +219,7 @@ public class show_aActivity extends AppCompatActivity {
                             show_aActivity.this, 2, intent, 0);
                     //创建闹钟
                     am = (AlarmManager) getSystemService(ALARM_SERVICE);
+                    am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), sender);
                     am.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 86400000, sender);//每日重複
 
                     String tmpS = format.format(curDate);

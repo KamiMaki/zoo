@@ -4,8 +4,7 @@
 
     <application>
         <activity android:name=".practiceAnsActivity" />
-        <activity android:name=".gameIFM1Activity" />
-        <activity android:name=".gameIFM2Activity"></activity>
+        <activity android:name=".gameIFMActivity"></activity>
     </application>
 
 </manifest>

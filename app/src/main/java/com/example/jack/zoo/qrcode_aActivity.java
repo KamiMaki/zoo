@@ -35,7 +35,7 @@ public class qrcode_aActivity extends AppCompatActivity {
         intent = this.getIntent();
         bundle = intent.getExtras();
         ib=(ImageButton)findViewById(R.id.imageButton);
-        ib.setImageResource(R.drawable.qrcode);
+        ib.setImageResource(R.drawable.qrcode2);
         tt = (TextView)findViewById(R.id.textView6);
         tv = (TextView)findViewById(R.id.textView7);
 
