@@ -103,7 +103,7 @@
         <activity android:name=".foodActivity" />
         <activity android:name=".UnityPlayerActivity" />
         <activity android:name=".informationActivity" />
-        <activity android:name=".gameActivity" />
+        <activity android:name=".game_aActivity" />
         <activity android:name=".gameMapsActivity" />
         <activity android:name=".restaurantActivity" />
         <activity android:name=".myFoodListActivity" />
@@ -123,13 +123,16 @@
         <activity android:name=".introduce_aActivity" />
         <activity android:name=".introduce_bActivity" />
         <activity android:name=".show_aActivity" />
-        <activity android:name=".gameIFMActivity" />
+        <activity android:name=".gameIFM1Activity" />
 
         <receiver
             android:name=".CallAlarmReceiver"
             android:process=":remote" />
 
-        <activity android:name=".show_bActivity"></activity>
+        <activity android:name=".show_bActivity" />
+        <activity android:name=".game_bActivity" />
+        <activity android:name=".gameActivity" />
+        <activity android:name=".gameIFM2Activity"></activity>
     </application>
 
 </manifest>
