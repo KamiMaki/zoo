@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/a3"
-    tools:context=".gameIFMActivity" >
+    android:background="@drawable/gameifm2_2"
+    tools:context=".gameIFM2Activity" >
+
 </RelativeLayout>
