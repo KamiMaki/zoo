@@ -54,6 +54,8 @@
         android:required="false" />
 
     <application
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
         android:allowBackup="true"
         android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
         android:icon="@mipmap/app_icon"
@@ -103,7 +105,7 @@
         <activity android:name=".foodActivity" />
         <activity android:name=".UnityPlayerActivity" />
         <activity android:name=".informationActivity" />
-        <activity android:name=".gameActivity" />
+        <activity android:name=".game_aActivity" />
         <activity android:name=".gameMapsActivity" />
         <activity android:name=".restaurantActivity" />
         <activity android:name=".myFoodListActivity" />
@@ -123,18 +125,17 @@
         <activity android:name=".introduce_aActivity" />
         <activity android:name=".introduce_bActivity" />
         <activity android:name=".show_aActivity" />
-        <activity android:name=".show_bActivity" />
         <activity android:name=".gameIFM1Activity" />
-        <activity android:name=".gameIFM2Activity" />
-        <activity android:name=".game_aActivity" />
-        <activity android:name=".game_bActivity" />
 
         <receiver
             android:name=".CallAlarmReceiver"
             android:process=":remote" />
-        <activity android:name=".show_bActivity" />
-        <activity android:name=".restaurant_intro"></activity>
 
+        <activity android:name=".show_bActivity" />
+        <activity android:name=".game_bActivity" />
+        <activity android:name=".gameActivity" />
+        <activity android:name=".gameIFM2Activity" />
+        <activity android:name=".rewardActivity"></activity>
     </application>
 
 </manifest>
