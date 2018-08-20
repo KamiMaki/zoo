@@ -19,12 +19,10 @@ import java.util.Calendar;
 public class CallAlarmReceiver extends BroadcastReceiver {
 
     int number;
-    Bundle bundle=new Bundle();
-
     @Override
     public void onReceive(Context context, Intent intent) {
         // TODO Auto-generated method stub
-
+        Bundle bundle=new Bundle();
         bundle = intent.getExtras();
         number = bundle.getInt("number");
         bundle.putInt("number", number);

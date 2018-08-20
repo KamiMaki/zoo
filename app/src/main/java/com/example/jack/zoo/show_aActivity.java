@@ -59,11 +59,10 @@ public class show_aActivity extends AppCompatActivity {
         switch2=findViewById(R.id.switch2);
         switch3=findViewById(R.id.switch3);
 
-        //先全開
         switch1.setChecked(true);
         switch2.setChecked(true);
         switch3.setChecked(true);
-        readFile();//讀檔讀出已關閉的
+        readFile();
         onSwitchClicked(switch1);
         onSwitchClicked(switch2);
         onSwitchClicked(switch3);
@@ -224,17 +223,17 @@ public class show_aActivity extends AppCompatActivity {
                     //int mMinute = calendar.get(Calendar.MINUTE);
 
                     // 设置时间
-                    calendar.setTimeInMillis(System.currentTimeMillis());
-                    calendar.set(Calendar.HOUR_OF_DAY,calendar.get(Calendar.HOUR_OF_DAY));
-                    calendar.set(Calendar.MINUTE,calendar.get(Calendar.MINUTE));
-                    calendar.set(Calendar.SECOND,calendar.get(Calendar.SECOND));
+                    //calendar.setTimeInMillis(System.currentTimeMillis());
+                    calendar.set(Calendar.HOUR_OF_DAY,16);
+                    calendar.set(Calendar.MINUTE,50);
+                    calendar.set(Calendar.SECOND,1);
                     //calendar.set(Calendar.MILLISECOND,0);
                     //calendar.set(2018, 7, 14, 16, 23,1);
 
                     //广播跳转
                     Bundle bundle=new Bundle();
                     Intent intent = new Intent(show_aActivity.this, CallAlarmReceiver.class);
-                    bundle.putInt("number", 0);
+                    bundle.putInt("number", 1);
                     intent.putExtras(bundle);
                     //启动一个广播
                     sender = PendingIntent.getBroadcast(
@@ -261,10 +260,9 @@ public class show_aActivity extends AppCompatActivity {
                     calendar=Calendar.getInstance();
                     calendar.setTimeInMillis(System.currentTimeMillis());
 
-                    calendar.setTimeInMillis(System.currentTimeMillis());
-                    calendar.set(Calendar.HOUR_OF_DAY,calendar.get(Calendar.HOUR_OF_DAY));
-                    calendar.set(Calendar.MINUTE,calendar.get(Calendar.MINUTE));
-                    calendar.set(Calendar.SECOND,calendar.get(Calendar.SECOND));
+                    calendar.set(Calendar.HOUR_OF_DAY,17);
+                    calendar.set(Calendar.MINUTE,20);
+                    calendar.set(Calendar.SECOND,1);
                     //calendar.set(2018, 7, 14, 16, 23,30);
 
                     //广播跳转
@@ -296,9 +294,9 @@ public class show_aActivity extends AppCompatActivity {
                 if (switch3.isChecked()) {
                     calendar=Calendar.getInstance();
                     calendar.setTimeInMillis(System.currentTimeMillis());
-                    calendar.set(Calendar.HOUR_OF_DAY,calendar.get(Calendar.HOUR_OF_DAY));
-                    calendar.set(Calendar.MINUTE,calendar.get(Calendar.MINUTE));
-                    calendar.set(Calendar.SECOND,calendar.get(Calendar.SECOND));
+                    calendar.set(Calendar.HOUR_OF_DAY,17);
+                    calendar.set(Calendar.MINUTE,35);
+                    calendar.set(Calendar.SECOND,1);
                     //calendar.set(2018, 7, 14, 16, 23,50);
                     //广播跳转
                     Bundle bundle=new Bundle();
