@@ -132,9 +132,14 @@
         <receiver
             android:name=".CallAlarmReceiver"
             android:process=":remote" />
-        <activity android:name=".show_bActivity" />
-        <activity android:name=".restaurant_intro"></activity>
 
+        <activity android:name=".show_bActivity" />
+        <activity android:name=".restaurant_intro" />
+        <activity
+            android:name=".menu"
+            android:label="@string/title_activity_menu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".list_menu"></activity>
     </application>
 
 </manifest>

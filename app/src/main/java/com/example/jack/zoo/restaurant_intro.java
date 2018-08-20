@@ -20,7 +20,7 @@ public class restaurant_intro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_intro);
         Bundle bundle =restaurant_intro.this.getIntent().getExtras();
-        String name = bundle.getString("res_name");
+        final String name = bundle.getString("res_name");
         String group = bundle.getString("res_group");
         String tel = bundle.getString("res_tel");
         String food = bundle.getString("res_food");
@@ -51,13 +51,20 @@ public class restaurant_intro extends AppCompatActivity {
         res_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
-
+                Intent intent = new Intent();
+                intent.setClass(restaurant_intro.this,menu.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("name",name);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
         res_line.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent();
+
+
 
 
             }

@@ -137,7 +137,6 @@ public class game_aActivity extends AppCompatActivity{
         img15= (ImageButton) findViewById(R.id.imageButton15);
         img16= (ImageButton) findViewById(R.id.imageButton16);
         correct= (TextView) findViewById(R.id.textView14);
-
         map.setImageResource(R.drawable.areamap);
 
         readFile1();

@@ -13,4 +13,5 @@
     <string name="title_activity_maps2">Map</string>
     <string name="title_activity_game_ifm">gameIFMActivity</string>
     <string name="title_activity_game_ifm2">gameIFM2Activity</string>
+    <string name="title_activity_menu">點餐</string>
 </resources>
