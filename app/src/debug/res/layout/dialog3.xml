@@ -3,17 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#a9e4d2"
-    tools:context=".restaurantActivity">
+    android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/lv"
-        android:layout_width="368dp"
-        android:layout_height="558dp"
+    <ImageView
+        android:id="@+id/imageView27"
+        android:layout_width="319dp"
+        android:layout_height="524dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.388"
+        app:srcCompat="@drawable/getreward1" />
 </android.support.constraint.ConstraintLayout>
