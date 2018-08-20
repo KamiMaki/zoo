@@ -8,7 +8,7 @@ import android.widget.ImageButton;
 
 public class gameActivity extends AppCompatActivity {
 
-    ImageButton ib1,ib2;
+    ImageButton ib1,ib2,ib3;
     Intent intent=new Intent();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,9 +19,11 @@ public class gameActivity extends AppCompatActivity {
 
         ib1 = (ImageButton) findViewById(R.id.imageButton39);
         ib2 = (ImageButton) findViewById(R.id.imageButton40);
+        ib3 = (ImageButton) findViewById(R.id.imageButton42);
 
         ib1.setImageResource(R.drawable.panel2);
         ib2.setImageResource(R.drawable.panel1);
+        ib3.setImageResource(R.drawable.reward4);
 
         ib1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -35,6 +37,14 @@ public class gameActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setClass(gameActivity.this, game_bActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ib3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(gameActivity.this, rewardActivity.class);
                 startActivity(intent);
             }
         });

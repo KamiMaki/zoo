@@ -134,12 +134,15 @@
             android:process=":remote" />
 
         <activity android:name=".show_bActivity" />
+<<<<<<< HEAD
         <activity android:name=".restaurant_intro" />
         <activity
             android:name=".menu"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".list_menu"></activity>
+=======
+>>>>>>> a11688fe2e458fdb3906a325ebeb9d64a9eafd1c
     </application>
 
 </manifest>
