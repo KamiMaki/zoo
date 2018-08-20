@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ public class menu extends AppCompatActivity {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
+    static Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,27 +37,18 @@ public class menu extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.container);
+        btn = findViewById(R.id.button15);
         mViewPager.setAdapter(mSectionsPagerAdapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+        btn.setText("前往結帳(總金額:0元)");
 
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_menu, menu);
-        return true;
+    public static void setbtn(int price)
+    {
+        btn.setText("前往結帳(總金額:"+price+"元)");
     }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     public static class PlaceholderFragment extends Fragment
     {
         int total_price = 0;
@@ -79,13 +72,11 @@ public class menu extends AppCompatActivity {
             final List<list_menu> foodList;
             foodList = new ArrayList<list_menu>();
             lv.setAdapter(new ListViewAdapter(getActivity(),foodList));
-
             switch (position)
             {
-
                 case 1:
                     foodList.clear();
-                    foodList.add(new list_menu(R.drawable.cream,"蜂蜜芥末+洋蔥圈+蜂蜜檸檬水",229));
+                    foodList.add(new list_menu(R.drawable.cream,"蜂蜜芥末+洋蔥圈",210));
                     lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(final AdapterView<?> parent, View view, final int position, long id) {
@@ -97,7 +88,7 @@ public class menu extends AppCompatActivity {
                                 {
                                      list_menu x =  (list_menu)parent.getItemAtPosition(position);
                                      total_price+=x.get_Price();
-
+                                     menu.setbtn(total_price);
                                 }
                                 }
                                     ).setNegativeButton("取消",new DialogInterface.OnClickListener() {
@@ -113,11 +104,18 @@ public class menu extends AppCompatActivity {
                 case 2:
 
                     foodList.clear();
-                    foodList.add(new list_menu(R.drawable.pizza,"番茄披薩",95));
+                    foodList.add(new list_menu(R.drawable.pizza,"乳酪披薩醬",105));
+                    foodList.add(new list_menu(R.drawable.cream,"招牌酸奶油",95));
+                    foodList.add(new list_menu(R.drawable.honey,"蜂蜜芥末醬",90));
+                    foodList.add(new list_menu(R.drawable.cheese,"特調起司醬",125));
+
                     break;
                 case 3:
 
                     foodList.clear();
+                    foodList.add(new list_menu(R.drawable.onion,"洋蔥圈",105));
+                    foodList.add(new list_menu(R.drawable.chicken,"雞柳條",95));
+
                     break;
                 case 4:
 
