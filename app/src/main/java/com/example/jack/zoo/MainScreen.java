@@ -11,9 +11,7 @@ import android.widget.ImageView;
 
 public class MainScreen extends AppCompatActivity {
 
-    ImageView background;
-    ImageButton camera,information,map,game,food,video;
-
+    ImageButton AR,book,game,food,information;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,50 +19,36 @@ public class MainScreen extends AppCompatActivity {
         setContentView(R.layout.activity_main_screen);
 
 
-        camera=(ImageButton)findViewById(R.id.button1);
-        information=(ImageButton)findViewById(R.id.button3);
-        map=(ImageButton)findViewById(R.id.button2);
+        AR=(ImageButton)findViewById(R.id.button1);
+        book=(ImageButton)findViewById(R.id.button2);
         game=(ImageButton)findViewById(R.id.button5);
         food=(ImageButton)findViewById(R.id.button4);
-        video=(ImageButton)findViewById(R.id.button6);
+        information=(ImageButton)findViewById(R.id.button3);
 
-
-        camera.setImageResource(R.drawable.camera);
-        information.setImageResource(R.drawable.guide);
-        map.setImageResource(R.drawable.roadsign);
+        AR.setImageResource(R.drawable.ar);
+        book.setImageResource(R.drawable.book);
         game.setImageResource(R.drawable.game);
         food.setImageResource(R.drawable.food);
-        video.setImageResource(R.drawable.video);
+        information.setImageResource(R.drawable.guide);
 
-        //AR相機
-        camera.setOnClickListener(new View.OnClickListener() {
+        //AR
+        AR.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(MainScreen.this, cameraActivity.class);
+                intent.setClass(MainScreen.this, ARActivity.class);
                 startActivity(intent);
             }
         });
 
-        //AR路標
-        map.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = getPackageManager().getLaunchIntentForPackage("Name.Company.com");
-                //intent.setClass(MainScreen.this, webview.class);
-                //Bundle bundle = new Bundle();
-                //bundle.putInt("position", 1);
-                //intent.putExtras(bundle);
-                startActivity(intent);
-            }
-        });
-
-        //園區資訊
-        information.setOnClickListener(new View.OnClickListener() {
+        //借閱圖書
+        book.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(MainScreen.this, informationActivity.class);
+                intent.setClass(MainScreen.this, bookActivity.class);
                 startActivity(intent);
             }
         });
+
 
         //用餐
         food.setOnClickListener(new View.OnClickListener() {
@@ -84,14 +68,15 @@ public class MainScreen extends AppCompatActivity {
             }
         });
 
-        //AR多媒體
-        video.setOnClickListener(new View.OnClickListener() {
+        //園區資訊
+        information.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = getPackageManager().getLaunchIntentForPackage("test123.Company.com");
-               // intent.setClass(MainScreen.this, animalActivity.class);
+                Intent intent = new Intent();
+                intent.setClass(MainScreen.this, informationActivity.class);
                 startActivity(intent);
             }
         });
+
     }
 
     private ImageButton.OnClickListener scan = new ImageButton.OnClickListener() {
