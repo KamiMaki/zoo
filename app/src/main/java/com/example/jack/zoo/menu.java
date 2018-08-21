@@ -76,7 +76,7 @@ public class menu extends AppCompatActivity {
             {
                 case 1:
                     foodList.clear();
-                    foodList.add(new list_menu(R.drawable.cream,"蜂蜜芥末+洋蔥圈",210));
+                    foodList.add(new list_menu(R.drawable.set_a,"蜂蜜芥末+洋蔥圈",210));
                     lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(final AdapterView<?> parent, View view, final int position, long id) {
@@ -113,8 +113,8 @@ public class menu extends AppCompatActivity {
                 case 3:
 
                     foodList.clear();
-                    foodList.add(new list_menu(R.drawable.onion,"洋蔥圈",105));
-                    foodList.add(new list_menu(R.drawable.chicken,"雞柳條",95));
+                    foodList.add(new list_menu(R.drawable.onion,"洋蔥圈",85));
+                    foodList.add(new list_menu(R.drawable.chicken,"雞柳條",85));
 
                     break;
                 case 4:

@@ -102,7 +102,7 @@ public class restaurantActivity extends AppCompatActivity {
                 "熱狗堡輕食類\n" +
                 "都柏林美食系列";
         res_content[6][4] = "無";
-        res_content[6][5] = "y";
+        res_content[6][5] = "n";
 
         res_content[7][0] = "食食再再";
         res_content[7][1] = "是";
