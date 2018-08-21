@@ -30,6 +30,7 @@ public class menu extends AppCompatActivity {
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     static Button btn;
+    static int total_price = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,21 +38,42 @@ public class menu extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.container);
-        btn = findViewById(R.id.button15);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        btn = findViewById(R.id.button15);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
         btn.setText("前往結帳(總金額:0元)");
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
     public static void setbtn(int price)
     {
-        btn.setText("前往結帳(總金額:"+price+"元)");
+        total_price+=price;
+        btn.setText("前往結帳(總金額:"+total_price+"元)");
     }
+
     public static class PlaceholderFragment extends Fragment
     {
-        int total_price = 0;
         List<list_menu> cart;
         private static final String ARG_SECTION_NUMBER = "section_number";
         public PlaceholderFragment() { }
@@ -72,8 +94,10 @@ public class menu extends AppCompatActivity {
             final List<list_menu> foodList;
             foodList = new ArrayList<list_menu>();
             lv.setAdapter(new ListViewAdapter(getActivity(),foodList));
+
             switch (position)
             {
+
                 case 1:
                     foodList.clear();
                     foodList.add(new list_menu(R.drawable.set_a,"蜂蜜芥末+洋蔥圈",210));
@@ -87,8 +111,10 @@ public class menu extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog,int which)
                                 {
                                      list_menu x =  (list_menu)parent.getItemAtPosition(position);
-                                     total_price+=x.get_Price();
-                                     menu.setbtn(total_price);
+                                     cart.add(x);
+                                    int p = x.get_Price();
+                                    menu.setbtn(p);
+
                                 }
                                 }
                                     ).setNegativeButton("取消",new DialogInterface.OnClickListener() {
@@ -108,18 +134,96 @@ public class menu extends AppCompatActivity {
                     foodList.add(new list_menu(R.drawable.cream,"招牌酸奶油",95));
                     foodList.add(new list_menu(R.drawable.honey,"蜂蜜芥末醬",90));
                     foodList.add(new list_menu(R.drawable.cheese,"特調起司醬",125));
+                    lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(final AdapterView<?> parent, View view, final int position, long id) {
+                            new AlertDialog.Builder(getActivity())
+                                    .setTitle("加入購物車")//設定視窗標題
+                                    .setMessage("是否要加入此餐點")
+                                    .setNeutralButton("確定",new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog,int which)
+                                                {
+                                                    list_menu x =  (list_menu)parent.getItemAtPosition(position);
+                                                    cart.add(x);
+                                                   int p=x.get_Price();
+                                                    menu.setbtn(p);
+
+                                                }
+                                            }
+                                    ).setNegativeButton("取消",new DialogInterface.OnClickListener() {
+
+                                public void onClick(DialogInterface dialog,int which) {
+                                    dialog.cancel();
+                                }
+
+                            }).show();//呈現對話視窗
+                        }
+                    });
 
                     break;
                 case 3:
 
                     foodList.clear();
+
                     foodList.add(new list_menu(R.drawable.onion,"洋蔥圈",85));
                     foodList.add(new list_menu(R.drawable.chicken,"雞柳條",85));
+                    lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(final AdapterView<?> parent, View view, final int position, long id) {
+                            new AlertDialog.Builder(getActivity())
+                                    .setTitle("加入購物車")//設定視窗標題
+                                    .setMessage("是否要加入此餐點")
+                                    .setNeutralButton("確定",new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog,int which)
+                                                {
+                                                    list_menu x =  (list_menu)parent.getItemAtPosition(position);
+                                                    cart.add(x);
+                                                   int p=x.get_Price();
+                                                    menu.setbtn(p);
 
+                                                }
+                                            }
+                                    ).setNegativeButton("取消",new DialogInterface.OnClickListener() {
+
+                                public void onClick(DialogInterface dialog,int which) {
+                                    dialog.cancel();
+                                }
+
+                            }).show();//呈現對話視窗
+                        }
+                    });
                     break;
                 case 4:
-
                     foodList.clear();
+                    foodList.add(new list_menu(R.drawable.cola,"汽水",25));
+                    foodList.add(new list_menu(R.drawable.juice,"100%柳橙汁",60));
+                    foodList.add(new list_menu(R.drawable.soda,"特調氣泡飲",75));
+                    lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(final AdapterView<?> parent, View view, final int position, long id) {
+                            new AlertDialog.Builder(getActivity())
+                                    .setTitle("加入購物車")//設定視窗標題
+                                    .setMessage("是否要加入此餐點")
+                                    .setNeutralButton("確定",new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog,int which)
+                                                {
+                                                    list_menu x =  (list_menu)parent.getItemAtPosition(position);
+                                                    cart.add(x);
+                                                    int p = x.get_Price();
+                                                    menu.setbtn(p);
+
+                                                }
+                                            }
+                                    ).setNegativeButton("取消",new DialogInterface.OnClickListener() {
+
+                                public void onClick(DialogInterface dialog,int which) {
+                                    dialog.cancel();
+                                }
+
+                            }).show();//呈現對話視窗
+                        }
+                    });
+
                     break;
             }
             return rootView;
