@@ -20,7 +20,7 @@ public class MainScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
-        background = (ImageView) findViewById(R.id.backimage);
+
         camera=(ImageButton)findViewById(R.id.button1);
         information=(ImageButton)findViewById(R.id.button3);
         map=(ImageButton)findViewById(R.id.button2);
@@ -28,7 +28,7 @@ public class MainScreen extends AppCompatActivity {
         food=(ImageButton)findViewById(R.id.button4);
         video=(ImageButton)findViewById(R.id.button6);
 
-        background.setImageResource(R.drawable.background);
+
         camera.setImageResource(R.drawable.camera);
         information.setImageResource(R.drawable.guide);
         map.setImageResource(R.drawable.roadsign);

@@ -54,6 +54,8 @@
         android:required="false" />
 
     <application
+        android:largeHeap="true"
+        android:hardwareAccelerated="false"
         android:allowBackup="true"
         android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
         android:icon="@mipmap/app_icon"

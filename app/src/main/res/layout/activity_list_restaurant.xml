@@ -10,10 +10,15 @@
 
 
     <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="328dp"
-        android:layout_height="151dp"
-        android:src="#C7FFFD"
+        android:id="@+id/imageView29"
+        android:layout_width="337dp"
+        android:layout_height="149dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/wood"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
