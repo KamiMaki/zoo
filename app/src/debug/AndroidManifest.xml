@@ -6,7 +6,8 @@
         <activity android:name=".practiceAnsActivity" />
         <activity android:name=".gameIFM1Activity" />
         <activity android:name=".gameIFM2Activity" />
-        <activity android:name=".rewardActivity"></activity>
+        <activity android:name=".rewardActivity" />
+        <activity android:name=".ARActivity"></activity>
     </application>
 
 </manifest>

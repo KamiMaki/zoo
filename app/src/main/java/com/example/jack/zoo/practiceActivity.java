@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -19,7 +20,7 @@ public class practiceActivity extends AppCompatActivity {
     TextView tv1,tv2,tv3;
     RadioButton rb1,rb2,rb3,rb4,rb5,rb6,rb7,rb8,rb9;
     RadioGroup rg1,rg2,rg3;
-    Button bt;
+    ImageButton bt;
 
 
     Intent intent=new Intent();
@@ -53,7 +54,8 @@ public class practiceActivity extends AppCompatActivity {
         rg1=(RadioGroup)findViewById(R.id.radioGroup1);
         rg2=(RadioGroup)findViewById(R.id.radioGroup2);
         rg3=(RadioGroup)findViewById(R.id.radioGroup3);
-        bt=(Button)findViewById(R.id.button8);
+        bt=(ImageButton)findViewById(R.id.imageButton43);
+
 
         title[0]="高氏宗祠文史館";
         title[1]="昆蟲館";

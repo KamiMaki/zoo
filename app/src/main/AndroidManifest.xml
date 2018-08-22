@@ -56,8 +56,10 @@
     <application
         android:allowBackup="true"
         android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/app_icon"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:launchMode="singleTask"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:screenOrientation="portrait"
@@ -140,6 +142,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".list_menu" />
         <activity android:name=".cart"></activity>
+        <activity android:name=".ARActivity" />
+        <activity android:name=".bookActivity"></activity>
+
     </application>
 
 </manifest>

@@ -25,9 +25,10 @@ public class practiceResultActivity extends AppCompatActivity {
 
     Intent intent=new Intent();
     Bundle bundle=new Bundle();
-    TextView cr,ncr;//顯示答對/錯題數
+    TextView cr,ncr,book;//顯示答對/錯題數
     ImageButton ans,back;
     String textToSave="",readResult1="";
+    String[] bookname = new String[16];
     //boolean count[]=new boolean[16];
     int n,number,readResult2=0;
     public static List<Activity> activityList = new LinkedList<Activity>();
@@ -46,6 +47,13 @@ public class practiceResultActivity extends AppCompatActivity {
         bundle = intent.getExtras();
         cr = (TextView)findViewById(R.id.textView12);
         ncr = (TextView)findViewById(R.id.textView13);
+        book = (TextView)findViewById(R.id.textView23);
+
+        bookname[2]="別吵醒貓熊/克里斯.歐文\n我是大貓熊I'm panda/譚楷文\n大貓熊與瀕危物種/瑪麗.波.奧斯本,娜塔莉.波.博以斯\n熊貓和浣熊/梁潤生";
+        bookname[4]="無尾熊壞嘴巴/克莉絲汀.貝潔\n當無尾熊遇到老虎:認識自己的天賦特質/張曼琳";
+        bookname[6]="小企鵝釣大魚！/宮西達也\n企鵝/陳炳煌\n365隻企鵝/尚路克．佛羅門塔\n正能量企鵝/るるてあRURUTEA\n波普先生的企鵝/理查.艾特瓦特夫婦\n企鵝熱氣球/林世仁\n工藤紀子繪本集:小企鵝歡樂旅程/工藤紀子";
+
+
         Thread t1 = new Thread(r1);
         t1.start();
 
@@ -111,6 +119,7 @@ public class practiceResultActivity extends AppCompatActivity {
                 String n2=Integer.toString(3-n);
                 cr.setText(n1);
                 ncr.setText(n2);
+                book.setText(bookname[number]);
                 setResult(RESULT_OK,intent);
             }
         }

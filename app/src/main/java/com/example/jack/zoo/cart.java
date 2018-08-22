@@ -45,6 +45,20 @@ public class cart extends AppCompatActivity {
         adapter = new ListViewAdapter1(this,cart);
         lv.setAdapter(adapter);
         tv.setText("總金額:"+total);
+        order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(cart.this,foodActivity.class);
+                startActivity(intent);
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cart.this.finish();
+            }
+        });
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(final AdapterView<?> parent, View view, final int position, long id) {
