@@ -1,6 +1,8 @@
 package com.example.jack.zoo;
 
-public class list_menu
+import java.io.Serializable;
+
+public class list_menu implements Serializable
 {
     private String name;
     private int price;
