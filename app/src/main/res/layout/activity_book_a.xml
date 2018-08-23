@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background8"
+    tools:context=".book_aActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="347dp"
+        android:layout_height="460dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.903">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="動物遊樂園：動物行為的豐富化"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="我只想回到自己的家"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="創意著色動物畫冊"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="字母動物園"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="為什麼長這樣?\n25個QA,認識動物奇妙的臉"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="爺爺的不可思議動物園"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="牠鄉何處？"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="來幫動物量身高"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="動物也瘋狂"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="10個動物冒險:繪本故事"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button11"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="動物的毛毛"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button12"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="動物國的流浪者"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="動物王國向前衝"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button14"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="動物很有事"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button15"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="人體與動物結構特輯"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button16"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="博物學家的神祕動物圖鑑"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button17"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="好棒的水生動物"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button18"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="動物博物館"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button19"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="遇到危險動物時的求生秘技"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button20"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="昨日之蛇 : 洛夫動物詩集"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="140dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="圖書借閱"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.038" />
+
+</android.support.constraint.ConstraintLayout>

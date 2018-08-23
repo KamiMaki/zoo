@@ -142,7 +142,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".list_menu" />
         <activity android:name=".ARActivity" />
-        <activity android:name=".bookActivity"></activity>
+        <activity android:name=".book_aActivity" />
+        <activity android:name=".book_bActivity"></activity>
     </application>
 
 </manifest>
