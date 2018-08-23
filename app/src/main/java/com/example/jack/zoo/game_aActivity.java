@@ -379,7 +379,6 @@ public class game_aActivity extends AppCompatActivity{
                 {
                     tv.setText(Place[16]);
                 }
-
                 correct.setText(readResult1+"題");
                 setResult(RESULT_OK,intent);
             }

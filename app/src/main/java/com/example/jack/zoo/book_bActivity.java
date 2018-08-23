@@ -13,6 +13,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class book_bActivity extends AppCompatActivity {
 
     Button bt;
@@ -26,6 +33,7 @@ public class book_bActivity extends AppCompatActivity {
     Intent intent=new Intent();
     Bundle bundle=new Bundle();
     int number;
+    String textToSave="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +48,7 @@ public class book_bActivity extends AppCompatActivity {
         tv4=findViewById(R.id.textView26);//大意
         bt=findViewById(R.id.button);
         img=findViewById(R.id.imageView6);
+
 
         title[0]="動物遊樂園:\n動物行為的豐富化";
         title[1]="我只想回到自己的家:\n動物保護.生態關懷文選";
@@ -150,17 +159,10 @@ public class book_bActivity extends AppCompatActivity {
         summary[14]="　　本書為人體與動物結構1、2二書的精華特輯，第1輯(人體與動物結構)中正確的解剖學基礎知識與國際最優秀的畫家與讀者分向繪製人體、動物的必備技巧。第2輯(人體動態結構)解釋人的身體如何運動，將人體結構拆解成簡單的形狀，並透過韻律線連接畫出動態的身體。";
         summary[15]="       在一個認知尚淺、居民尚少的世界，一切皆有可能──至少一切都似是而非。\n" +
                 "　　不為人所知的巨獸、讓人吃驚的各種變形、從不同生物——甚至人類身上——借來的各個部分組合而成的動物。\n" +
-                "　　男神、女神、牧神、山神、諸多森林與水流中的神祇，一直在催生新的造物。\n" +
-                "　　旅行者反覆講述著侏儒、獨角獸與巨鷹的古老故事，\n" +
-                "　　豐富著它們的內容，最終這些故事都成了一些平淡的事實。\n\n" +
-                "　　1959年，神祕動物學擠進了「科學」的範疇，\n" +
-                "　　人們試圖將神祕動物與已知動物進行對比，證明牠們的可信性，\n" +
-                "　　但也有學者對其中某些動物的存在表示懷疑。\n" +
-                "　　如普林尼就不相信有美人魚、飛馬，\n" +
-                "　　但他又不無委婉地說道：「在真正出現以前，有多少東西是不可想像的。」\n\n" +
-                "　　人們遊走在虛實之間，有些曾經存在的化作傳說，而宇宙同時又有新的創生，\n" +
-                "　　但透過短暫的歷史，我們謙卑也自負的證實，想像終將比可見的真實走得更遠。\n" +
-                "　　也許未來有一天，我們的後代也會弄明白這份名錄究竟是一場夢境，爾或真實的預言。";
+                "　　男神、女神、牧神、山神、諸多森林與水流中的神祇，一直在催生新的造物。\n　　旅行者反覆講述著侏儒、獨角獸與巨鷹的古老故事，\n　　豐富著它們的內容，最終這些故事都成了一些平淡的事實。\n\n" +
+                "　　1959年，神祕動物學擠進了「科學」的範疇，\n　　人們試圖將神祕動物與已知動物進行對比，證明牠們的可信性，\n　　但也有學者對其中某些動物的存在表示懷疑。\n" +
+                "　　如普林尼就不相信有美人魚、飛馬，\n　　但他又不無委婉地說道：「在真正出現以前，有多少東西是不可想像的。」\n\n" +
+                "　　人們遊走在虛實之間，有些曾經存在的化作傳說，而宇宙同時又有新的創生，\n　　但透過短暫的歷史，我們謙卑也自負的證實，想像終將比可見的真實走得更遠。\n　　也許未來有一天，我們的後代也會弄明白這份名錄究竟是一場夢境，爾或真實的預言。";
         summary[16]="       推一推，轉一轉，\n　　一起來認識生長在珊瑚礁、\n　　岩池和冰山的水生動物，\n　　探索奇妙的水中世界！";
         summary[17]="　　這是一座自然史博物館，從嬌小的昆蟲，到巨大的藍鯨，全都以驚人的細節呈現在你眼前。\n\n" +
                 "　　在這裡，你可以看到生命如何從海洋中簡單的海綿動物，演變成今日地球上可以找到的各式野生動物！\n\n" +
@@ -168,13 +170,10 @@ public class book_bActivity extends AppCompatActivity {
                 "　　你還可以觀察到氣候如何影響生態系統，了解到物種經過數百萬年的演化，最後如何適應牠們的生存環境！\n\n" +
                 "　　無脊椎動物、魚類、兩生類、爬行類、鳥類和哺乳類，這些動物有古有今，有大有小，有凶猛也有柔弱的。\n\n" +
                 "　　你會在這裡，見識到成果輝煌的動物王國！";
-        summary[18]="　　如果有一天，在野外遇見危險動物該怎麼辦呢？今天就讓這本「遇到危險動物時的求生秘技」教你如何逃出生天。\n" +
-                "\n" +
-                "　　以「萬一遇到危險動物的時候該如何自保？該如何從危險動物口下保住一命？」的角度出發，搭配漫畫式的插圖，以輕鬆幽默、深入淺出的方式來介紹各種危險動物的特徵、攻擊力、攻擊方法等等，是有助於我們了解危險動物的科學小百科，小孩、大人都能看得津津有味！像是遇到虎頭蜂的時候千萬不要尖叫逃跑，最好當場蹲下來，一動也不動，即使虎頭蜂停在身體上，也要忍耐，絕對不能動，虎頭蜂盤旋一陣就會飛走。最後還介紹去野外的時候要帶些什麼東西、穿成什麼樣子，要是真的受傷又該如何急救。萬一有天真的在荒郊野外遇到這些危險動物，從這本書裡所學到的知識或許真能救自己及同行的人一命也說不定。\n" +
-                "\n" +
+        summary[18]="　　如果有一天，在野外遇見危險動物該怎麼辦呢？今天就讓這本「遇到危險動物時的求生秘技」教你如何逃出生天。\n\n" +
+                "　　以「萬一遇到危險動物的時候該如何自保？該如何從危險動物口下保住一命？」的角度出發，搭配漫畫式的插圖，以輕鬆幽默、深入淺出的方式來介紹各種危險動物的特徵、攻擊力、攻擊方法等等，是有助於我們了解危險動物的科學小百科，小孩、大人都能看得津津有味！像是遇到虎頭蜂的時候千萬不要尖叫逃跑，最好當場蹲下來，一動也不動，即使虎頭蜂停在身體上，也要忍耐，絕對不能動，虎頭蜂盤旋一陣就會飛走。最後還介紹去野外的時候要帶些什麼東西、穿成什麼樣子，要是真的受傷又該如何急救。萬一有天真的在荒郊野外遇到這些危險動物，從這本書裡所學到的知識或許真能救自己及同行的人一命也說不定。\n\n" +
                 "　　除了野生動物之外，書末另外介紹了潛藏在居家的危險動物、前往野外的裝備和穿著、急救措施等精彩單元，讓讀者全面了解各種危險動物相關知識。此外，這本書的中文版審訂者請到任職於國立臺灣科學教育館的劉藍玉博士。在圖文並茂的輕鬆之餘也不失正確性及專業性。不論大人小孩，如果想要了解危險動物，本書絕對是你的好選擇。";
-        summary[19]="　　在《魔歌》詩集的自序中，洛夫曾言：「真我，是一個詩人唯一追求的目標。要想達到此企圖，詩人首先必須把自身割成碎片，而後揉入一切事物之中，使個人的生命與天地之間的生命融為一體。」這部《昨日之蛇》即是詩人這段「物我同一」自白的具體體現。\n" +
-                "\n" +
+        summary[19]="　　在《魔歌》詩集的自序中，洛夫曾言：「真我，是一個詩人唯一追求的目標。要想達到此企圖，詩人首先必須把自身割成碎片，而後揉入一切事物之中，使個人的生命與天地之間的生命融為一體。」這部《昨日之蛇》即是詩人這段「物我同一」自白的具體體現。\n\n" +
                 "　　《昨日之蛇》收錄41首書寫動物的作品，詩人體認到人與動物都是宇宙之神賦予的一個生命、一種自然的存在，彼此之間的應對與聯繫，使他從各種小動物的生態演變之觀察，發掘出人和動物的互動關係，進而以象徵手法與詩筆細膩地描繪出人與其心智站立於天地的姿態。這部動物詩集並非返老還童的童詩，而是詩人觀看自我一生的一面明鏡，明鏡中所照耀出的是，詩人矗立於生命高峰上的一段見證。";
 
         bt.setOnClickListener(new View.OnClickListener() {
@@ -199,8 +198,10 @@ public class book_bActivity extends AppCompatActivity {
                                 }
                             }).show();
                 }
+                writeFile3();
             }
         });
+
 
         Thread t1 = new Thread(r1);
         t1.start();
@@ -211,6 +212,7 @@ public class book_bActivity extends AppCompatActivity {
 
             try {
                 number = bundle.getInt("number");
+                readFile3();
             } catch (Exception e) {
                 Log.e("Net", "Fail to put");
             }
@@ -223,6 +225,9 @@ public class book_bActivity extends AppCompatActivity {
     Handler h1 = new Handler() {
         public void handleMessage(Message msg) {
             if (msg.what == 1) {
+                if(reserve[number]==true){
+                    bt.setText("取消預約");
+                }
                 tv1.setText(title[number]);
                 tv2.setText(writer[number]);
                 tv3.setText(publisher[number]);
@@ -291,4 +296,50 @@ public class book_bActivity extends AppCompatActivity {
             }
         }
     };
+
+    //存檔(已預約的書)
+    public void writeFile3(){
+
+        for(int i=0;i<20;i++){
+            if(reserve[i]==true){
+                textToSave+=Integer.toString(i)+" ";//存入true的數字
+            }
+        }
+        try{
+            FileOutputStream fileOutputStream=openFileOutput("AmazooGameFile3.txt", MODE_PRIVATE);
+            fileOutputStream.write(textToSave.getBytes());
+            fileOutputStream.close();
+
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    //讀檔(已預約的書)
+    public void readFile3(){
+        try{
+            FileInputStream fileInputStream=openFileInput("AmazooGameFile3.txt");
+            InputStreamReader inputStreamReader=new InputStreamReader(fileInputStream);
+
+            BufferedReader bufferedReader=new BufferedReader(inputStreamReader);
+            StringBuffer stringBuffer= new StringBuffer();
+
+            String lines;
+            while((lines=bufferedReader.readLine())!=null){
+                stringBuffer.append(lines);
+            }
+
+            String[] number = stringBuffer.toString().split(" ");
+            int i=0;
+            while(i<number.length){
+                int a=Integer.parseInt(number[i]);
+                reserve[a]=true;
+                i++;
+            }
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 }
