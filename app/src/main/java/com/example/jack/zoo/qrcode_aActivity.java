@@ -15,6 +15,12 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class qrcode_aActivity extends AppCompatActivity {
 
     ImageButton ib;
@@ -26,6 +32,7 @@ public class qrcode_aActivity extends AppCompatActivity {
     String[] hint = new String[16];//提示
     int n;
     int number;
+    boolean count[]=new boolean[16];//紀錄集點狀況
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +80,7 @@ public class qrcode_aActivity extends AppCompatActivity {
         hint[14]="先測試";
         hint[15]="先測試";
 
-
+        readFile1();
 
         Thread t1 = new Thread(r1);
         t1.start();
@@ -121,6 +128,33 @@ public class qrcode_aActivity extends AppCompatActivity {
         }
     };
 
+    //讀檔(已答過的館)
+    public void readFile1(){
+        try{
+            FileInputStream fileInputStream=openFileInput("AmazooGameFile1.txt");
+            InputStreamReader inputStreamReader=new InputStreamReader(fileInputStream);
+
+            BufferedReader bufferedReader=new BufferedReader(inputStreamReader);
+            StringBuffer stringBuffer= new StringBuffer();
+
+            String lines;
+            while((lines=bufferedReader.readLine())!=null){
+                stringBuffer.append(lines);
+            }
+            String[] number = stringBuffer.toString().split(" ");
+            int i=0;
+            while(i<number.length){
+                int a=Integer.parseInt(number[i]);
+                count[a]=true;
+                i++;
+            }
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
@@ -135,43 +169,50 @@ public class qrcode_aActivity extends AppCompatActivity {
             {
                 //Toast.makeText(this,result.getContents(),Toast.LENGTH_SHORT).show();
 
-                if(result.getContents().equals("高氏宗祠文史館")){
+                boolean x=true;
+                if(result.getContents().equals("高氏宗祠文史館")&&!count[0]){
                     n=0;}
-                else if(result.getContents().equals("昆蟲館")){
+                else if(result.getContents().equals("昆蟲館")&&!count[1]){
                     n=1;}
-                else if(result.getContents().equals("大貓熊館")){
+                else if(result.getContents().equals("大貓熊館")&&!count[2]){
                     n=2;}
-                else if(result.getContents().equals("教育中心")){
+                else if(result.getContents().equals("教育中心")&&!count[3]){
                     n=3;}
-                else if(result.getContents().equals("無尾熊館")){
+                else if(result.getContents().equals("無尾熊館")&&!count[4]){
                     n=4;}
-                else if(result.getContents().equals("兩棲爬蟲動物館")){
+                else if(result.getContents().equals("兩棲爬蟲動物館")&&!count[5]){
                     n=5;}
-                else if(result.getContents().equals("企鵝館")){
+                else if(result.getContents().equals("企鵝館")&&!count[6]){
                     n=6;}
-                else if(result.getContents().equals("臺灣動物區")){
+                else if(result.getContents().equals("臺灣動物區")&&!count[7]){
                     n=7;}
-                else if(result.getContents().equals("兒童動物區")){
+                else if(result.getContents().equals("兒童動物區")&&!count[8]){
                     n=8;}
-                else if(result.getContents().equals("亞洲熱帶雨林區")){
+                else if(result.getContents().equals("亞洲熱帶雨林區")&&!count[9]){
                     n=9;}
-                else if(result.getContents().equals("沙漠動物區")){
+                else if(result.getContents().equals("沙漠動物區")&&!count[10]){
                     n=10;}
-                else if(result.getContents().equals("澳洲動物區")){
+                else if(result.getContents().equals("澳洲動物區")&&!count[11]){
                     n=11;}
-                else if(result.getContents().equals("非洲動物區")){
+                else if(result.getContents().equals("非洲動物區")&&!count[12]){
                     n=12;}
-                else if(result.getContents().equals("溫帶動物區")){
+                else if(result.getContents().equals("溫帶動物區")&&!count[13]){
                     n=13;}
-                else if(result.getContents().equals("鳥園區")){
+                else if(result.getContents().equals("鳥園區")&&!count[14]){
                     n=14;}
-                else if(result.getContents().equals("酷Cool節能屋")){
+                else if(result.getContents().equals("酷Cool節能屋")&&!count[15]){
                     n=15;}
-                intent.setClass(qrcode_aActivity.this, practiceActivity.class);
-                bundle.putInt("input", n);
-                intent.putExtras(bundle);
-                startActivityForResult(intent,0);
-                qrcode_aActivity.this.finish();
+                else{
+                    Toast.makeText(this,"已回答過此館題目",Toast.LENGTH_SHORT).show();
+                    x=false;
+                }
+                if(x){
+                    intent.setClass(qrcode_aActivity.this, practiceActivity.class);
+                    bundle.putInt("input", n);
+                    intent.putExtras(bundle);
+                    startActivityForResult(intent, 0);
+                    qrcode_aActivity.this.finish();
+                }
             }
         }
         else

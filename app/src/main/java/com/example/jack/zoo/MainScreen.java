@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 public class MainScreen extends AppCompatActivity {
 
@@ -47,7 +46,7 @@ public class MainScreen extends AppCompatActivity {
         book.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(MainScreen.this, bookActivity.class);
+                intent.setClass(MainScreen.this, book_aActivity.class);
                 startActivity(intent);
             }
         });
