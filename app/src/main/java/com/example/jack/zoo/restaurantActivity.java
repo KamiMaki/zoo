@@ -75,7 +75,7 @@ public class restaurantActivity extends AppCompatActivity {
                 "新鮮果汁、現打冰沙茶類\n" +
                 "麵食、飯類、披薩主餐熟食";
         res_content[3][4] = "5";
-        res_content[3][5] = "l";
+        res_content[3][5] = "n";
 
         res_content[4][0] = "雨林店";
         res_content[4][1] = "是";
@@ -101,7 +101,7 @@ public class restaurantActivity extends AppCompatActivity {
         res_content[6][3] = "炸物類食品系列\n" +
                 "熱狗堡輕食類\n" +
                 "都柏林美食系列";
-        res_content[6][4] = "無";
+        res_content[6][4] = "10";
         res_content[6][5] = "y";
 
         res_content[7][0] = "食食再再";

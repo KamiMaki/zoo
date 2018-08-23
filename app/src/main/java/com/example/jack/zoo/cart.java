@@ -4,9 +4,11 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.PowerManager;
+import android.os.Vibrator;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,19 +19,21 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.jack.zoo.menu.total_price;
 
 public class cart extends AppCompatActivity {
     ListView lv;
     Intent intent = new Intent();
     ListViewAdapter1 adapter;
     TextView tv;
+    ArrayList cart;
     Button order,back;
     int total;
+    Thread t1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,21 +45,46 @@ public class cart extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         assert bundle != null;
         total = bundle.getInt("price");
-        final ArrayList cart = (ArrayList)bundle.getSerializable("cart");
+        cart = (ArrayList)bundle.getSerializable("cart");
         adapter = new ListViewAdapter1(this,cart);
         lv.setAdapter(adapter);
         tv.setText("總金額:"+total);
         order.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ShowToast")
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(cart.this,foodActivity.class);
-                startActivity(intent);
+                if(total == 0)
+                {
+                    Toast toast = Toast.makeText(cart.this,"訂單不可為空",Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+                else//送出訂單
+                {
+                    Intent intent = new Intent();
+                    intent.setClass(cart.this,foodActivity.class);
+                    myFoodListActivity.list.add("愛爾蘭瘋薯\t總金額"+total+"\t取餐編號"+menu.num);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    menu.cart.clear();
+                    total = 0;
+                    menu.total_price = 0;
+                    Toast toast = Toast.makeText(cart.this,"目前編號:"+(restaurant_intro.num)+"您的編號:"+menu.num+"\n預計取餐時間:"+(menu.num-Integer.valueOf(restaurant_intro.num))*2+"分鐘",Toast.LENGTH_LONG);
+                    toast.show();
+                    Toast toast1 = Toast.makeText(cart.this,"目前編號:11"+"您的編號:"+menu.num+"\n預計取餐時間:"+(menu.num-Integer.valueOf(restaurant_intro.num)-1)*2+"分鐘",Toast.LENGTH_LONG);
+                    toast1.show();
+
+                }
             }
         });
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent();
+                Bundle bundle = new Bundle();
+                bundle.putInt("price",total);
+                bundle.putSerializable("cart", (Serializable) cart);
+                intent.putExtras(bundle);
+                setResult(RESULT_OK,intent);
                 cart.this.finish();
             }
         });
@@ -75,8 +104,8 @@ public class cart extends AppCompatActivity {
                                         tv.setText("總金額:"+total);
                                         assert cart != null;
                                         cart.remove(position);
+                                        menu.cart.remove(position);
                                         adapter.notifyDataSetChanged();
-
                                     }
                                 }
                         ).setNegativeButton("取消",new DialogInterface.OnClickListener() {
@@ -91,13 +120,15 @@ public class cart extends AppCompatActivity {
         });
     }
 
+
+
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // TODO Auto-generated method stub
-
         if (keyCode == KeyEvent.KEYCODE_BACK) { // 攔截返回鍵
             Intent intent = new Intent();
             Bundle bundle = new Bundle();
             bundle.putInt("price",total);
+            bundle.putSerializable("cart", (Serializable) cart);
             intent.putExtras(bundle);
             setResult(RESULT_OK,intent);
             cart.this.finish();
@@ -111,9 +142,8 @@ class ListViewAdapter1 extends BaseAdapter {
 
     private List<list_menu> food;
     private LayoutInflater layoutInflater;
-    private Context context;
-    public ListViewAdapter1(Context context,List<list_menu> food){
-        this.context=context;
+
+    ListViewAdapter1(Context context, List<list_menu> food){
         this.food=food;
         this.layoutInflater=LayoutInflater.from(context);
     }

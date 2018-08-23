@@ -47,7 +47,7 @@ public class show_bActivity extends AppCompatActivity {
 
         Thread t1 = new Thread(r1);
         t1.start();
-        startMedia();
+        //startMedia();
         startVibrator();
         createDialog();
 

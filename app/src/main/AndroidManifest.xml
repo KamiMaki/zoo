@@ -98,7 +98,6 @@
             android:value="@string/google_maps_key" />
 
         <activity android:name=".cameraActivity" />
-        <activity android:name=".animalActivity" />
         <activity
             android:name=".mapsActivity"
             android:label="@string/title_activity_maps" />

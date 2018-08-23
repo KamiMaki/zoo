@@ -1,5 +1,5 @@
 package com.example.jack.zoo;
-
+//AR專區
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,10 +39,6 @@ public class ARActivity extends AppCompatActivity {
         roadSign.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = getPackageManager().getLaunchIntentForPackage("ame.Company.comm");
-                //intent.setClass(MainScreen.this, webview.class);
-                //Bundle bundle = new Bundle();
-                //bundle.putInt("position", 1);
-                //intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -51,7 +47,6 @@ public class ARActivity extends AppCompatActivity {
         video.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = getPackageManager().getLaunchIntentForPackage("test123.Company.com");
-                // intent.setClass(MainScreen.this, animalActivity.class);
                 startActivity(intent);
             }
         });

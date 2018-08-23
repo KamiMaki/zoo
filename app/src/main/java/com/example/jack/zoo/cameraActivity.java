@@ -1,4 +1,5 @@
 package com.example.jack.zoo;
+//AR相機
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -17,9 +18,9 @@ import java.util.TimerTask;
 
 public class cameraActivity extends Activity{
 protected UnityPlayer mUnityPlayer;
-String path = "/storage/emulated/0/Pictures/";
+String path = "/storage/emulated/0/Pictures/";//儲存路徑
 Intent intent;
-Timer timer01 = new Timer();
+Timer timer01 = new Timer();//自動掃描並更新媒體庫
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,13 +162,13 @@ Timer timer01 = new Timer();
     @Override public boolean onKeyDown(int keyCode, KeyEvent event)
     {
 
-        if(keyCode == KeyEvent.KEYCODE_BACK )
+        if(keyCode == KeyEvent.KEYCODE_BACK )//偵測到返回鍵按下
         {
             folderScan(path);
             timer01.cancel();
             onDestroy();
         }
         return true; }
-    @Override public boolean onTouchEvent(MotionEvent event)          { return mUnityPlayer.injectEvent(event); }
+    @Override public boolean onTouchEvent(MotionEvent event) { return mUnityPlayer.injectEvent(event); }
     public boolean onGenericMotionEvent(MotionEvent event)  { return mUnityPlayer.injectEvent(event); }
 }

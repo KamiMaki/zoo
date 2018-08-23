@@ -15,6 +15,7 @@ public class restaurant_intro extends AppCompatActivity {
     TextView res_num;
     Button res_order;
     Button res_line;
+    static String num;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +25,7 @@ public class restaurant_intro extends AppCompatActivity {
         String group = bundle.getString("res_group");
         String tel = bundle.getString("res_tel");
         String food = bundle.getString("res_food");
-        String num = bundle.getString("res_num");
+        num = bundle.getString("res_num");
         String order = bundle.getString("res_order");
         res_name = findViewById(R.id.res_name);
         res_group = findViewById(R.id.res_group);

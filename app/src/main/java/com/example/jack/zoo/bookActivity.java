@@ -1,24 +1,20 @@
 package com.example.jack.zoo;
-
+//預約借書
 import android.content.DialogInterface;
-import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 public class bookActivity extends AppCompatActivity {
 
     Button bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9,bt10,bt11,bt12,bt13,bt14,bt15,bt16,bt17,bt18,bt19,bt20;
     boolean reserve[]=new boolean[20];
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
-
         bt1=findViewById(R.id.button1);
         bt2=findViewById(R.id.button2);
         bt3=findViewById(R.id.button3);
@@ -43,7 +39,7 @@ public class bookActivity extends AppCompatActivity {
 
         bt1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                if(reserve[0]==false) {
+                if(!reserve[0]) {
                     bt1.setText("取消預約");
                     reserve[0]=true;
                     new AlertDialog.Builder(bookActivity.this)
@@ -68,7 +64,7 @@ public class bookActivity extends AppCompatActivity {
 
         bt2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                if(reserve[1]==false) {
+                if(!reserve[1]) {
                     bt2.setText("取消預約");
                     reserve[1]=true;
                     new AlertDialog.Builder(bookActivity.this)

@@ -35,6 +35,7 @@ public class menu extends AppCompatActivity {
     static Button btn;
     static int total_price = 0;
     static final List<list_menu> cart = new ArrayList<list_menu>();
+    static int num = 15;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

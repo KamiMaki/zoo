@@ -45,13 +45,11 @@ import java.util.TimerTask;
 public class game_aActivity extends AppCompatActivity{
 
     private BluetoothAdapter mBluetoothAdapter;
-    private ArrayAdapter<String> mylistAdapter;
-    private ArrayList<String> bluetoothdeviceslist = new ArrayList<String>();
     private static final int PERMISSION_REQUEST_COARSE_LOCATION = 1;
     private String s1 = "BR517474";
     private String s2 = "BR517474";
     private String s3 = "BR517488";
-    double dis1 = 0, dis2 = 0, dis3 = 0, dis = 0, x = 0, y = 0;
+    double dis = 0;
     int b_num = -1;
     Boolean isready = false;
     //以上beacon

@@ -9,17 +9,14 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+
 public class foodActivity extends AppCompatActivity {
 
-    Intent intent;
     ImageButton restaurant,shopping;
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
-
-        intent=this.getIntent();
-
         restaurant= (ImageButton) findViewById(R.id.restaurant);
         shopping=(ImageButton) findViewById(R.id.mylist);
 
