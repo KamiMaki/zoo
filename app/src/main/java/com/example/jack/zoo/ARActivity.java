@@ -38,7 +38,7 @@ public class ARActivity extends AppCompatActivity {
         //AR路標
         roadSign.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = getPackageManager().getLaunchIntentForPackage("Name.Company.com");
+                Intent intent = getPackageManager().getLaunchIntentForPackage("ame.Company.comm");
                 //intent.setClass(MainScreen.this, webview.class);
                 //Bundle bundle = new Bundle();
                 //bundle.putInt("position", 1);

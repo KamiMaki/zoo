@@ -31,6 +31,9 @@ public class MainScreen extends AppCompatActivity {
         information.setImageResource(R.drawable.guide);
 
         //AR
+
+
+        //AR路標
         AR.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();

@@ -2,7 +2,9 @@ package com.example.jack.zoo;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -22,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +34,7 @@ public class menu extends AppCompatActivity {
     private ViewPager mViewPager;
     static Button btn;
     static int total_price = 0;
+    static final List<list_menu> cart = new ArrayList<list_menu>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +51,22 @@ public class menu extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                Intent intent = new Intent();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("cart", (Serializable) cart);
+                bundle.putInt("price",total_price);
+                intent.putExtras(bundle);
+                intent.setClass(menu.this,cart.class);
+                startActivityForResult(intent,1);
             }
         });
 
+    }
+    protected void onActivityResult(int requestCode,int resultCode, Intent data) {
+        if(requestCode==1&&resultCode==RESULT_OK){
+            total_price = data.getExtras().getInt("price");
+            btn.setText("前往結帳(總金額:"+total_price+"元)");
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -74,7 +90,7 @@ public class menu extends AppCompatActivity {
 
     public static class PlaceholderFragment extends Fragment
     {
-        List<list_menu> cart;
+
         private static final String ARG_SECTION_NUMBER = "section_number";
         public PlaceholderFragment() { }
         public static PlaceholderFragment newInstance(int sectionNumber)
@@ -92,6 +108,7 @@ public class menu extends AppCompatActivity {
             int position = getArguments().getInt(ARG_SECTION_NUMBER);
             final ListView lv = rootView.findViewById(R.id.ll);
             final List<list_menu> foodList;
+
             foodList = new ArrayList<list_menu>();
             lv.setAdapter(new ListViewAdapter(getActivity(),foodList));
 
@@ -111,7 +128,7 @@ public class menu extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog,int which)
                                 {
                                      list_menu x =  (list_menu)parent.getItemAtPosition(position);
-                                     cart.add(x);
+                                     menu.cart.add(x);
                                     int p = x.get_Price();
                                     menu.setbtn(p);
 

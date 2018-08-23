@@ -141,9 +141,12 @@
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".list_menu" />
+        <activity android:name=".cart"></activity>
         <activity android:name=".ARActivity" />
+
         <activity android:name=".book_aActivity" />
         <activity android:name=".book_bActivity"></activity>
+
     </application>
 
 </manifest>
