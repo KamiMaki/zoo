@@ -260,7 +260,6 @@ public class show_aActivity extends AppCompatActivity {
                     // TODO Auto-generated method stub
                     calendar=Calendar.getInstance();
                     calendar.setTimeInMillis(System.currentTimeMillis());
-
                     calendar.setTimeInMillis(System.currentTimeMillis());
                     calendar.set(Calendar.HOUR_OF_DAY,calendar.get(Calendar.HOUR_OF_DAY));
                     calendar.set(Calendar.MINUTE,calendar.get(Calendar.MINUTE));
@@ -319,7 +318,6 @@ public class show_aActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = time1Share.edit();
                     editor.putString("TIME1", tmpS);
                     editor.commit();
-
                     Toast.makeText(show_aActivity.this,"開啟鬧鐘提醒",Toast.LENGTH_SHORT).show();
                 }
         }

@@ -51,10 +51,6 @@ Timer timer01 = new Timer();//自動掃描並更新媒體庫
 
     @Override protected void onNewIntent(Intent intent)
     {
-        // To support deep linking, we need to make sure that the client can get access to
-        // the last sent intent. The clients access this through a JNI api that allows them
-        // to get the intent set on launch. To update that after launch we have to manually
-        // replace the intent with the one caught here.
         setIntent(intent);
     }
 
