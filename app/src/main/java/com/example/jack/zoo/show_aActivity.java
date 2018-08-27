@@ -60,9 +60,10 @@ public class show_aActivity extends AppCompatActivity {
         switch3=findViewById(R.id.switch3);
 
         //先全開
-        switch1.setChecked(true);
-        switch2.setChecked(true);
-        switch3.setChecked(true);
+        //switch1.setChecked(true);
+        //switch2.setChecked(true);
+        //switch3.setChecked(true);
+
         readFile();//讀檔讀出已關閉的
         onSwitchClicked(switch1);
         onSwitchClicked(switch2);
