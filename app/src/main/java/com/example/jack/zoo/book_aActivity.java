@@ -10,8 +10,8 @@ import android.widget.Button;
 
 public class book_aActivity extends AppCompatActivity {
 
-    Button bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9,bt10,bt11,bt12,bt13,bt14,bt15,bt16,bt17,bt18,bt19,bt20;
-    boolean reserve[]=new boolean[20];
+    Button bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9,bt10,bt11,bt12,bt13,bt14,bt15,bt16,bt17,bt18,bt19,bt20,bt21,bt22,bt23;
+    boolean reserve[]=new boolean[23];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,9 @@ public class book_aActivity extends AppCompatActivity {
         bt18=findViewById(R.id.button18);
         bt19=findViewById(R.id.button19);
         bt20=findViewById(R.id.button20);
+        bt21=findViewById(R.id.button21);
+        bt22=findViewById(R.id.button22);
+        bt23=findViewById(R.id.button23);
 
 
         bt1.setOnClickListener(new View.OnClickListener() {
@@ -255,6 +258,39 @@ public class book_aActivity extends AppCompatActivity {
                 Bundle bundle=new Bundle();
                 intent.setClass(book_aActivity.this, book_bActivity.class);
                 bundle.putInt("number", 19);
+                intent.putExtras(bundle);
+                startActivityForResult(intent,0);
+            }
+        });
+
+        bt21.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent=new Intent();
+                Bundle bundle=new Bundle();
+                intent.setClass(book_aActivity.this, book_bActivity.class);
+                bundle.putInt("number", 20);
+                intent.putExtras(bundle);
+                startActivityForResult(intent,0);
+            }
+        });
+
+        bt22.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent=new Intent();
+                Bundle bundle=new Bundle();
+                intent.setClass(book_aActivity.this, book_bActivity.class);
+                bundle.putInt("number", 21);
+                intent.putExtras(bundle);
+                startActivityForResult(intent,0);
+            }
+        });
+
+        bt23.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent=new Intent();
+                Bundle bundle=new Bundle();
+                intent.setClass(book_aActivity.this, book_bActivity.class);
+                bundle.putInt("number", 22);
                 intent.putExtras(bundle);
                 startActivityForResult(intent,0);
             }

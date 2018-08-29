@@ -227,7 +227,7 @@ public class show_aActivity extends AppCompatActivity {
                     // 设置时间
                     calendar.setTimeInMillis(System.currentTimeMillis());
                     calendar.set(Calendar.HOUR_OF_DAY,calendar.get(Calendar.HOUR_OF_DAY));
-                    calendar.set(Calendar.MINUTE,calendar.get(Calendar.MINUTE));
+                    calendar.set(Calendar.MINUTE,calendar.get(Calendar.MINUTE)+1);
                     calendar.set(Calendar.SECOND,calendar.get(Calendar.SECOND));
                     //calendar.set(Calendar.MILLISECOND,0);
                     //calendar.set(2018, 7, 14, 16, 23,1);
@@ -263,7 +263,7 @@ public class show_aActivity extends AppCompatActivity {
                     calendar.setTimeInMillis(System.currentTimeMillis());
                     calendar.setTimeInMillis(System.currentTimeMillis());
                     calendar.set(Calendar.HOUR_OF_DAY,calendar.get(Calendar.HOUR_OF_DAY));
-                    calendar.set(Calendar.MINUTE,calendar.get(Calendar.MINUTE));
+                    calendar.set(Calendar.MINUTE,calendar.get(Calendar.MINUTE)+1);
                     calendar.set(Calendar.SECOND,calendar.get(Calendar.SECOND));
                     //calendar.set(2018, 7, 14, 16, 23,30);
 
@@ -297,7 +297,7 @@ public class show_aActivity extends AppCompatActivity {
                     calendar=Calendar.getInstance();
                     calendar.setTimeInMillis(System.currentTimeMillis());
                     calendar.set(Calendar.HOUR_OF_DAY,calendar.get(Calendar.HOUR_OF_DAY));
-                    calendar.set(Calendar.MINUTE,calendar.get(Calendar.MINUTE));
+                    calendar.set(Calendar.MINUTE,calendar.get(Calendar.MINUTE)+1);
                     calendar.set(Calendar.SECOND,calendar.get(Calendar.SECOND));
                     //calendar.set(2018, 7, 14, 16, 23,50);
                     //广播跳转

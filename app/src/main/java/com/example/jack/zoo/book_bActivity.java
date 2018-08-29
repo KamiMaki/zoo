@@ -25,11 +25,11 @@ public class book_bActivity extends AppCompatActivity {
     Button bt;
     TextView tv1,tv2,tv3,tv4;
     ImageView img;
-    boolean reserve[]=new boolean[20];
-    String title[]=new String[20];
-    String writer[]=new String[20];
-    String publisher[]=new String[20];
-    String summary[]=new String[20];
+    boolean reserve[]=new boolean[23];
+    String title[]=new String[23];
+    String writer[]=new String[23];
+    String publisher[]=new String[23];
+    String summary[]=new String[23];
     Intent intent=new Intent();
     Bundle bundle=new Bundle();
     int number;
@@ -70,6 +70,9 @@ public class book_bActivity extends AppCompatActivity {
         title[17]="動物博物館";
         title[18]="遇到危險動物時的求生秘技";
         title[19]="昨日之蛇 : 洛夫動物詩集";
+        title[20]="小企鵝釣大魚！";
+        title[21]="365隻企鵝";
+        title[22]="正能量企鵝Koupen Chan";
 
         writer[0]="鄭世嘉, 潘玉潔";
         writer[1]="陳幸蕙主編";
@@ -91,6 +94,9 @@ public class book_bActivity extends AppCompatActivity {
         writer[17]="珍妮.布魯姆(Jenny Broom)文 ; 凱蒂.史考特(Katie Scott)圖 ; 王心瑩譯";
         writer[18]="今泉忠明監修.著 ; 賴惠鈴翻譯";
         writer[19]="洛夫";
+        writer[20]="宮西達也著 ; 柳怡如譯";
+        writer[21]="尚路克．佛羅門塔文 ; 喬艾勒．喬莉芙圖 ; 黃筱茵譯";
+        writer[22]="るるてあRURUTEA作 ; 陳怡君譯";
 
         publisher[0]="台北市立動物園";
         publisher[1]="幼獅文化";
@@ -112,6 +118,9 @@ public class book_bActivity extends AppCompatActivity {
         publisher[17]="大家";
         publisher[18]="人人";
         publisher[19]="遠景";
+        publisher[20]="天下遠見";
+        publisher[21]="上誼文化";
+        publisher[22]="臺灣角川";
 
         summary[0]="        動物園推動「行為豐富化」，透過改變動物的圈養環境，或是增加飼養管理的操作變化， 來誘發或增加動物表現自然行為的機會，其出發點在於提升動物福祉、促進動物的健康。本書以圖文介紹臺北動物園多年來實行的「行為豐富化」措施，讓讀者在觀賞可愛的動物之餘，也能獲得動物照養及動物行為學的相關知識。";
         summary[1]="        身為人類，面對地球上的萬物生靈，是驕傲？是慚愧？當生態環境遭人為破壞，大量物種瀕臨滅絕時，我們難道只能說「生而為人，我很抱歉」？\n\n        當社會一再發生虐殺動物事件時，大眾常感震驚：為何人性竟如此殘忍？怎能視傷害生命為樂呢？我們的教育到底出了什麼問題？\n\n" +
@@ -175,6 +184,25 @@ public class book_bActivity extends AppCompatActivity {
                 "　　除了野生動物之外，書末另外介紹了潛藏在居家的危險動物、前往野外的裝備和穿著、急救措施等精彩單元，讓讀者全面了解各種危險動物相關知識。此外，這本書的中文版審訂者請到任職於國立臺灣科學教育館的劉藍玉博士。在圖文並茂的輕鬆之餘也不失正確性及專業性。不論大人小孩，如果想要了解危險動物，本書絕對是你的好選擇。";
         summary[19]="　　在《魔歌》詩集的自序中，洛夫曾言：「真我，是一個詩人唯一追求的目標。要想達到此企圖，詩人首先必須把自身割成碎片，而後揉入一切事物之中，使個人的生命與天地之間的生命融為一體。」這部《昨日之蛇》即是詩人這段「物我同一」自白的具體體現。\n\n" +
                 "　　《昨日之蛇》收錄41首書寫動物的作品，詩人體認到人與動物都是宇宙之神賦予的一個生命、一種自然的存在，彼此之間的應對與聯繫，使他從各種小動物的生態演變之觀察，發掘出人和動物的互動關係，進而以象徵手法與詩筆細膩地描繪出人與其心智站立於天地的姿態。這部動物詩集並非返老還童的童詩，而是詩人觀看自我一生的一面明鏡，明鏡中所照耀出的是，詩人矗立於生命高峰上的一段見證。";
+        summary[20]="　　小企和小鵝是好朋友，相親相愛一起跳繩、吃飯糰，有一天，他們一起去釣魚，釣魚線抖抖抖，大章魚、大鰻魚、大烏賊和大螃蟹，眼看著就要釣起來了，但是，好朋友竟然在一旁潑冷水，認為釣到的只不過是個小東西啦！接二連三的失落，再加上好朋友不斷的吐嘈，小企和小鵝最後終於翻臉吵架……\n\n" +
+                "　　在這個簡單講述友情的故事中，有著宮西達也一貫天馬行空的想像與童趣，而且同樣可見宮西達也運用繪本翻頁效果的功力。重覆的情節、有趣誇張的海底生物，以及充滿戲劇張力的結局，更是令讀者開開心心的和兩隻企鵝一起進釣魚的異想世界。";
+        summary[21]="　　新年第一天，郵差帶來一個驚喜 ? 一隻企鵝! 一天接一天，一隻接一隻，一開始很可愛，讓人忍不住想替每一隻都取個名字；可是當企鵝愈堆愈高，餵食、清潔、安置都成大問題時，這家人也快要瘋狂了！可是，更重要的是: 到底是誰送來這些企鵝? 又究竟是為什麼呢？\n\n" +
+                "　　超乎常理的特大版面圖畫書，爆笑的情節，加上最讓人意想不到的結局，使這本書風糜法國之後，相繼在美國和日本成為超級暢銷書！一位日本媽媽說：「光是從上百隻企鵝中找出藍色腳ㄚ那隻，就可以讓我小孩興奮不已，這本書真是可愛極了」。\n\n" +
+                "　　不過除了好笑的故事外，本書更隱含著一個更重要的議題: 全球暖化帶來的危機正逐步危害到所有的生物，包括南北極的企鵝和北極熊。本書從照顧企鵝的角度切入，巧妙結合奇想與生態環境的保護，並邀請大家拿出數學頭腦來幫忙安置企鵝們，讓小讀者在哈哈大笑之餘能更進一步關懷人類和動物所賴以維生的這個地球。\n\n" +
+                "　　父母在陪伴孩子賞閱時，除了與孩子共同探討環境與生態變遷的問題與效應外，這個故事也會激盪出許多好玩的樂趣，比如：一天來一隻企鵝，企鵝的數量以等速度持續累積。為了計算如何準備飼料，孩子必須活用加法和乘法的計算。為了好好安置企鵝，又必須擁有除法的概念。最有趣的那一頁，就在安排144隻企鵝所住的櫃子，上面都有編號呢，這樣才能讓企鵝住得其所，不能亂跑。\n\n" +
+                "　　本書營造的氣氛，整體來說是歡愉的，繪者僅用橘、藍、黑、白、灰數色，就能把這家人的生活攪得天翻地覆，從興奮到手忙腳亂；隨著企鵝的數目增多，畫面也變得目不暇給，一種近乎超現實的奇異趣味，瀰漫全書。故事的畫面間，還藏了一個小遊戲，請仔細找找看，隱身在其他同伴間的藍腳ㄚ企鵝，牠究竟躲在哪裡呢？";
+        summary[22]="　　「早上可以自己起床，好棒喔！」\n" +
+                "　　「今天抵達公司的時間剛剛好，是一百分唷～！」等等，\n" +
+                "　　對任何事都正面看待的「正能量企鵝 Koupen Chan」，第一本作品出版啦！\n\n" +
+                "　　皇帝企鵝寶寶—小企鵝，\n" +
+                "　　對於凡事努力積極的你，總是給予最大的肯定。\n\n" +
+                "　　在Twitter、LINE貼圖超高人氣的小企鵝，終於推出第一本作品囉！\n" +
+                "　　而且書中特別附贈了獨一無二的原創貼紙２張！\n" +
+                "　　書中同時收錄小企鵝與邪惡長尾山雀的第一次相遇等等許多新作品！\n" +
+                "　　所有插圖全都是為了這次書籍化重新描繪的唷！\n" +
+                "　　正能量企鵝Koupen Chan的強大魅力，\n" +
+                "　　盡在百分之百全新繪製的本書當中！";
+
 
         bt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -292,6 +320,15 @@ public class book_bActivity extends AppCompatActivity {
                 else if(number==19) {
                     img.setImageResource(R.drawable.book20);
                 }
+                else if(number==20) {
+                    img.setImageResource(R.drawable.book21);
+                }
+                else if(number==21) {
+                    img.setImageResource(R.drawable.book22);
+                }
+                else if(number==22) {
+                    img.setImageResource(R.drawable.book23);
+                }
                 setResult(RESULT_OK,intent);
             }
         }
@@ -300,7 +337,7 @@ public class book_bActivity extends AppCompatActivity {
     //存檔(已預約的書)
     public void writeFile3(){
 
-        for(int i=0;i<20;i++){
+        for(int i=0;i<23;i++){
             if(reserve[i]==true){
                 textToSave+=Integer.toString(i)+" ";//存入true的數字
             }

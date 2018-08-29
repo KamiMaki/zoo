@@ -124,7 +124,7 @@ public class show_bActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setIcon(R.drawable.clock)
                 .setTitle("表演提醒")
-                .setMessage(show[number]+" 將在10分鐘內開始")
+                .setMessage(show[number]+" 將在30分鐘內開始")
                 .setPositiveButton("推遲10分鐘", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         tenMRemind();

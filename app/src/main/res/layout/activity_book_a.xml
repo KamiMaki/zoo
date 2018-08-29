@@ -27,6 +27,33 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/button23"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="正能量企鵝Koupen Chan"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button22"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="365隻企鵝"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button21"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/frame"
+                android:text="小企鵝釣大魚！"
+                android:textSize="20dp" />
+
+            <Button
                 android:id="@+id/button1"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"

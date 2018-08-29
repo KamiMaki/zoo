@@ -37,6 +37,7 @@ public class MainScreen extends AppCompatActivity {
     double dis = 0;
     int b_num = -1;
     Boolean isready = false;
+    int flag=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -223,7 +224,7 @@ public class MainScreen extends AppCompatActivity {
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);//添加到列表
                     if (device.getName() != null) {
 
-                                if (device.getName().equals(s3)) {
+                                if (device.getName().equals(s3)&&flag==1) {
                                     Log.e("found","found");
 
                                     final AlertDialog.Builder alertadd = new AlertDialog.Builder(MainScreen.this);
@@ -244,6 +245,7 @@ public class MainScreen extends AppCompatActivity {
                                         }
                                     });
                                     alertadd.show();
+                                    flag=0;
                                 }
                     }
                 //搜索完成
